@@ -1,2 +1,5 @@
-# es-helper
-常用ES方法工具集合
+# es-treasure
+常用es6的工具方法集合
+
+
+

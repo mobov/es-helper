@@ -1,0 +1,65 @@
+{
+  "name": "es-treasure",
+  "version": "1.0.5",
+  "description": "前端常用工具方法集合",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack-dev-server --open --config build/serve.js",
+    "build:umd": "cross-env TYPE=umd rollup -c build/build.js",
+    "build:cjs": "cross-env TYPE=cjs rollup -c build/build.js",
+    "build": "npm run build:umd && npm run build:cjs",
+    "publish:onemt": "nrm use onemt && npm publish",
+    "publish:npm": "nrm use npm && npm publish",
+    "pub": "gulp build && npm run publish:npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nocoolyoyo/es-treasure.git"
+  },
+  "keywords": [
+    "utils",
+    "javascript",
+    "es",
+    "tools"
+  ],
+  "author": "nocoolyoyo",
+  "module": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nocoolyoyo/es-treasure/issues"
+  },
+  "homepage": "https://github.com/nocoolyoyo/es-treasure#readme",
+  "peerDependencies": {
+    "eslint": ">= 3"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "cross-env": "^5.2.0",
+    "debug": "^4.1.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "npm-run-all": "^4.1.3",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-serve": "^0.6.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "rollup-watch": "^4.3.1",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
