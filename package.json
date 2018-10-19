@@ -2,16 +2,18 @@
   "name": "es-treasure",
   "version": "1.0.5",
   "description": "前端常用工具方法集合",
-  "main": "lib/index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --open --config build/serve.js",
     "build:umd": "cross-env TYPE=umd rollup -c build/build.js",
     "build:cjs": "cross-env TYPE=cjs rollup -c build/build.js",
-    "build": "npm run build:umd && npm run build:cjs",
+    "build:es": "cross-env TYPE=es rollup -c build/build.js",
+    "build": "npm run build:es && npm run build:umd && npm run build:cjs",
     "publish:onemt": "nrm use onemt && npm publish",
     "publish:npm": "nrm use npm && npm publish",
-    "pub": "gulp build && npm run publish:npm"
+    "pub": "npm run build && npm run publish:npm"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,6 @@
     "tools"
   ],
   "author": "nocoolyoyo",
-  "module": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nocoolyoyo/es-treasure/issues"

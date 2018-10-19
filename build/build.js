@@ -2,9 +2,6 @@ import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { eslint } from 'rollup-plugin-eslint'
-// import serve from 'rollup-plugin-serve'
-// import livereload from 'rollup-plugin-livereload'
-
 import packages from '../package.json'
 
 const config = {
@@ -25,12 +22,10 @@ const config = {
       browser: true,
     }),
     commonjs(),
-    // serve('example'),
-    // livereload(),
   ],
 }
 
-if (process.env.TYPE === 'cjs') {
+if (process.env.TYPE !== 'umd') {
   config.external = Object.keys(packages.dependencies)
 }
 

@@ -3,7 +3,7 @@
  * Created by nocoolyoyo on 2018/3/11.
  */
 import { isEmptyObject } from './validate'
-
+import { isMobile, isOSAndroid, isOSIos, isOSWindows } from './validate'
 const Client = { }
 
 /**
@@ -12,17 +12,17 @@ const Client = { }
  * @param isMount
  */
 export function initClient(lang, isMount = true) {
-  if (/mobile/gi.test(navigator.userAgent)) {
+  if (isMobile()) {
     Client.type = 'mobile'
   } else {
     Client.type = 'pc'
   }
 
-  if (/ipad|iphone|mac/gi.test(navigator.userAgent)) {
+  if (isOSIos()) {
     Client.OS = 'IOS'
-  } else if (/android/gi.test(navigator.userAgent)) {
+  } else if (isOSAndroid()) {
     Client.OS = 'Android'
-  } else if (/window/gi.test(navigator.userAgent)) {
+  } else if (isOSWindows()) {
     Client.OS = 'Windows'
   }
 
@@ -37,7 +37,6 @@ export function initClient(lang, isMount = true) {
   } else {
     Client.lang = navigator.language
   }
-  console.log(123123123223)
   // 挂载硬件信息到节点属性
   if (isMount) {
     const $root = document.documentElement

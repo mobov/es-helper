@@ -88,3 +88,35 @@ export function isStyleUnit(val) {
   if (typeof val !== 'string') { return false }
   return RegexMap.styleUnit.test(val)
 }
+
+/**
+ * 是否是手机
+ * @return {boolean}
+ */
+export function isMobile() {
+	return RegexMap.UA_CLIENT_MOBILE.test(navigator.userAgent)
+}
+
+/**
+ * 是否是IOS系统
+ * @return {boolean}
+ */
+export function isOSIos() {
+	return RegexMap.UA_OS_IOS.test(navigator.userAgent)
+}
+
+/**
+ * 是否是ANDROID系统
+ * @return {boolean}
+ */
+export function isOSAndroid() {
+	return RegexMap.UA_OS_ANDROID.test(navigator.userAgent)
+}
+
+/**
+ * 是否是WINDOWS系统
+ * @return {boolean}
+ */
+export function isOSWindows() {
+	return RegexMap.UA_OS_WINDOWS.test(navigator.userAgent)
+}
