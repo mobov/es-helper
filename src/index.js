@@ -12,3 +12,9 @@ export {
   isEmptyObject, isHexColor, isStyleUnit,
   isOSWindows, isOSIos, isOSAndroid, isMobile
 } from './validate'
+export {
+	scrollToY, scrollToX, scrollToXView, scrollToYView
+} from './easeScroll'
+export {
+	sineaseIn, sineaseOut, strongEaseIn, strongEaseOut, easeIn
+} from './tween'

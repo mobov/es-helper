@@ -33,5 +33,6 @@ module.exports = {
     'func-names': 0,
     'no-console': 0,
     'no-prototype-builtins': 0,
+    'no-return-assign': 0,
   }
 }
