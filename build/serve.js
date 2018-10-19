@@ -1,10 +1,11 @@
 const path = require('path')
-
+const webpack = require('webpack')
+const eslintLoader = require('eslint-loader')
 module.exports = {
 	entry: './example/main.js',
 	devtool: 'source-map',
 	watch: true,
-	mode: 'none',
+	mode: 'development',
 	devServer: {
 		contentBase: path.join(__dirname, '../example/'),
 		open: true,
@@ -12,4 +13,8 @@ module.exports = {
 		hot: true,
 		host: 'localhost',
 	},
+	plugins: [
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin()
+	],
 }

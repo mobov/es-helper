@@ -3,5 +3,4 @@
  */
 import { initClient } from '../src/device'
 
-
 initClient()

@@ -26,7 +26,7 @@ export function initClient(lang, isMount = true) {
     Client.OS = 'Windows'
   }
 
-  if (lang && lang !== '') {
+  if (!!lang) {
     lang = lang.split('-')
     if (lang.length > 1) {
       lang = `${lang[0]}-${lang[1].toUpperCase()}`
@@ -55,6 +55,6 @@ export function initClient(lang, isMount = true) {
  * @returns {object}
  */
 export function getClient() {
-  if (isEmptyObject(Client)) { initClient() }
+  if (isEmptyObject(Client)) { initClient(null, false) }
   return Client
 }
