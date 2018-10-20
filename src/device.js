@@ -48,6 +48,7 @@ export function initClient(lang, isMount = true) {
       $root.setAttribute('dir', 'rtl')
     }
   }
+  return Client
 }
 
 /**

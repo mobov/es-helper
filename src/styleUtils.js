@@ -16,14 +16,11 @@ export function strStyle(styleObj) {
   Object.keys(styleObj).forEach(key => {
     if (styleObj.hasOwnProperty(key)) cssStr += `${key}:${styleObj[key]};`
   })
-  // for (const key in styleObj) {
-  //   if (styleObj.hasOwnProperty(key)) cssStr += `${key}:${styleObj[key]};`
-  // }
   return cssStr
 }
 
 /**
- *获取节点的某个属性的值
+ * 获取节点的CSS属性的值
  * @param element {Object} 节点
  * @param styleName {String} 属性名字
  * @returns {*}

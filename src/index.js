@@ -4,7 +4,7 @@
 export { default as copy2Board } from './copy2Board'
 export { initClient, getClient } from './device'
 export { getStyle, strStyle } from './styleUtils'
-export { getUrlParam, appendUrlParam } from './urlParams'
+export { getUrlParam, appendUrlParams } from './urlParams'
 export { default as imageLoaded } from './imageLoaded'
 export { default as RegexMap } from './regexMap'
 export {
@@ -15,6 +15,3 @@ export {
 export {
 	scrollToY, scrollToX, scrollToXView, scrollToYView
 } from './easeScroll'
-export {
-	sineaseIn, sineaseOut, strongEaseIn, strongEaseOut, easeIn
-} from './tween'

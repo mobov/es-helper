@@ -25,7 +25,7 @@ export function getUrlParam(name, url = window.location.href) {
  * @author: nocoolyoyo
  * @date: 2018-09-04
  */
-export function appendUrlParam(params = {}, url = '') {
+export function appendUrlParams(params = {}, url = window.location.href) {
   // url已存在参数
   let tempStr = ''
   Object.keys(params).forEach(key => {
