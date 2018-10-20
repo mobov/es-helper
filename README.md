@@ -1,6 +1,11 @@
 # es-helper
 #### 常用es6的工具方法集合
 
+### 安装
+```shell
+yarn add @megmore/es-helper or npm install @megmore/es-helper
+```
+
 ### `initClient(lang, isMount): {type, lang, OS}`
 > 初始化设备信息
 
