@@ -52,12 +52,13 @@ yarn add @megmore/es-helper or npm install @megmore/es-helper
 | height  | number | 高度 
 | width  | number | 宽度
 
-### `scrollToY($scroller, justify, duration, transition)`
+### `scrollToY($scroller, { justify, duration, transition, $viewer })`
 > 滚动到Y轴某个位置
 
 | 参数名称 | 类型 | 默认值 | 说明 |  
 | :---: | :---: | :---: | :----: | 
 | $scroller | HTMLElement |  | 要滚动的容器 |
+| $viewer | HTMLElement | null | 滚动的目标节点，如果该参数存在，则会滚动到该节点的距离加上justify的距离 |
 | justify | number / 'start' / 'end' | 0 | 滚动偏差值, 'start'：滚动到起始位置, 'end'：滚动到结束位置, 正数表示正向滚动， 比如-300表示向下滚动300距离 |
 | duration | number | 500 | 过渡时间 |
 | transition | 'linear' / 'easeIn' / 'strongEaseIn' / 'strongEaseOut' / 'sineaseIn' / 'sineaseOut' | 'sineaseOut' | 过渡动画 |
@@ -65,12 +66,7 @@ yarn add @megmore/es-helper or npm install @megmore/es-helper
 ### `scrollToX($scroller, justify, duration, transition)`
 > 滚动到X轴某个位置
 
-参照如上
-
-### `scrollToY($scroller, justify, duration, transition)`
-> 滚动到Y轴某个位置
-
-参照scrollToX
+参照scrollToY
 
 ### `strStyle(styleObj): string`
 > css样式构造
