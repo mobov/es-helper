@@ -12,9 +12,7 @@ export {
   isEmptyObject, isHexColor, isStyleUnit,
   isOSWindows, isOSIos, isOSAndroid, isMobile,
 } from './validate'
-export {
-  scrollToY, scrollToX, scrollToXView, scrollToYView,
-} from './easeScroll'
+export { scrollToY, scrollToX } from './easeScroll'
 export { default as findNode } from './findNode'
 export { default as deepCopy } from './deepCopy'
 export { default as deepEqual } from './deepEqual'

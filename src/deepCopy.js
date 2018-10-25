@@ -3,7 +3,7 @@ export default  function deepCopy(source) {//对象深拷贝
  if (source instanceof Array) {
    target = [];
    source.forEach(item => {
-     if (typeof item == 'object') {
+     if (typeof item === 'object') {
        target.push(deepCopy(item));
      } else {
        target.push(item);
@@ -12,7 +12,7 @@ export default  function deepCopy(source) {//对象深拷贝
  } else if (source instanceof Object) {
    target = {};
    for (let prop in source) {
-     if (typeof source[prop] == 'object') {
+     if (typeof source[prop] === 'object') {
        target[prop] = deepCopy(source[prop]);
      } else {
        target[prop] = source[prop];
