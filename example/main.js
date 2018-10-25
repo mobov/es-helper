@@ -2,7 +2,7 @@
  * Created by nocoolyoyo on 2018/10/18.
  */
 import { initClient,
-	     scrollToXView, scrollToYView, scrollToX, scrollToY } from '../src/index'
+	     scrollToXView, scrollToYView, scrollToX, scrollToY,getClient } from '../src/index'
 
 
 
@@ -13,4 +13,5 @@ setInterval(()=> {
 	justify = -100
 	scrollToY(document.querySelector('.scroller'), justify)
 }, 1000)
+console.log(getClient())
 

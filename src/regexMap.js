@@ -23,7 +23,7 @@ export default {
   HEX_COLOR: /^#[0-9a-fA-F]{6}$/,
   STYLE_UNIT: /px|vw|rem|em|%$/,
   UA_CLIENT_MOBILE: /mobile/gi,
-  UA_OS_IOS: /ipad|iphone|mac/gi,
+  UA_OS_IOS: /ipad|iphone/gi,
   UA_OS_ANDROID: /android/gi,
-  UA_OS_WINDOWS: /window/gi,
+  UA_OS_WINDOWS: /window|mac|linux/gi,
 }
