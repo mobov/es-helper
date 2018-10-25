@@ -13,6 +13,7 @@ import RegexMap from './regexMap'
  * @author   nocoolyoyo
  */
 export function isURL(val) {
+  RegexMap.url.lastIndex = 0
   return RegexMap.url.test(val)
 }
 
@@ -26,6 +27,7 @@ export function isURL(val) {
  * @author   nocoolyoyo
  */
 export function isLowerCase(val) {
+  RegexMap.lowerCase.lastIndex = 0
   return RegexMap.lowerCase.test(val)
 }
 
@@ -36,6 +38,7 @@ export function isLowerCase(val) {
  * @returns   {boolean}
  */
 export function isUpperCase(val) {
+  RegexMap.upperCase.lastIndex = 0
   return RegexMap.upperCase.test(val)
 }
 
@@ -46,6 +49,7 @@ export function isUpperCase(val) {
  * @returns   {boolean}
  */
 export function isEmail(val) {
+  RegexMap.email.lastIndex = 0
   return RegexMap.email.test(val)
 }
 
@@ -75,6 +79,7 @@ export function isEmptyObject(val) {
  * @return {boolean}
  */
 export function isHexColor(val) {
+  RegexMap.hexColor.lastIndex = 0
   if (typeof val !== 'string') { return false }
   return RegexMap.hexColor.test(val)
 }
@@ -85,6 +90,7 @@ export function isHexColor(val) {
  * @return {boolean}
  */
 export function isStyleUnit(val) {
+  RegexMap.styleUnit.lastIndex = 0
   if (typeof val !== 'string') { return false }
   return RegexMap.styleUnit.test(val)
 }
@@ -94,7 +100,8 @@ export function isStyleUnit(val) {
  * @return {boolean}
  */
 export function isMobile() {
-	return RegexMap.UA_CLIENT_MOBILE.test(navigator.userAgent)
+  RegexMap.UA_CLIENT_MOBILE.lastIndex = 0
+  return RegexMap.UA_CLIENT_MOBILE.test(navigator.userAgent)
 }
 
 /**
@@ -102,7 +109,8 @@ export function isMobile() {
  * @return {boolean}
  */
 export function isOSIos() {
-	return RegexMap.UA_OS_IOS.test(navigator.userAgent)
+  RegexMap.UA_OS_IOS.lastIndex = 0
+  return RegexMap.UA_OS_IOS.test(navigator.userAgent)
 }
 
 /**
@@ -110,7 +118,8 @@ export function isOSIos() {
  * @return {boolean}
  */
 export function isOSAndroid() {
-	return RegexMap.UA_OS_ANDROID.test(navigator.userAgent)
+  RegexMap.UA_OS_ANDROID.lastIndex = 0
+  return RegexMap.UA_OS_ANDROID.test(navigator.userAgent)
 }
 
 /**
@@ -118,5 +127,6 @@ export function isOSAndroid() {
  * @return {boolean}
  */
 export function isOSWindows() {
-	return RegexMap.UA_OS_WINDOWS.test(navigator.userAgent)
+  RegexMap.UA_OS_WINDOWS.lastIndex = 0
+  return RegexMap.UA_OS_WINDOWS.test(navigator.userAgent)
 }
