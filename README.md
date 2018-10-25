@@ -99,6 +99,41 @@ yarn add @megmore/es-helper or npm install @megmore/es-helper
 | params | object |   |参数键值对   |
 | url | string |  location.href | url  |
 
+### `arrayUnique:(arr:array)=>Array`
+> 数组去重
+
+| 参数名称 | 类型 | 默认值 | 说明 |
+| :---: | :---: | :---: | :----: | 
+| array | Array | - |输入数组|
+
+
+### `deepCopy:(arr:any)=>any`
+
+> 深度拷贝
+
+| 参数名称 | 类型 | 默认值 | 说明 |
+| :---: | :---: | :---: | :----: | 
+| input | Object | - |输入json对象|
+
+### `findNode:({data:object | array,id:string,childStr:string})=>object | array`
+
+> 节点查找
+
+| 参数名称 | 类型 | 默认值 | 说明 |
+| :---: | :---: | :---: | :----: | 
+| data | Object | - |数据源|
+| field | String | id |唯一标示字段|
+| key | String | - |唯一标示字段值|
+
+### `deepEqual:(param1:any,param2:any)=>boolean`
+
+> json深度对比
+
+| 参数名称 | 类型 | 默认值 | 说明 |
+| :---: | :---: | :---: | :----: | 
+| param1,param2 | any | - |需要对比的数据|
+
+
 
 
 
