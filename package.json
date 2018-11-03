@@ -22,8 +22,10 @@
     "utils",
     "javascript",
     "es",
-    "tools"
+    "tools",
+    "types"
   ],
+  "typings": "types/*.d.ts",
   "author": "nocoolyoyo",
   "license": "MIT",
   "bugs": {
