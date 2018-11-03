@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocoolyoyo/es-treasure.git"
+    "url": "git+https://github.com/megmore/es-helper.git"
   },
   "keywords": [
     "utils",
@@ -29,9 +29,9 @@
   "author": "nocoolyoyo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nocoolyoyo/es-treasure/issues"
+    "url": "https://github.com/megmore/es-helper/issues"
   },
-  "homepage": "https://github.com/nocoolyoyo/es-treasure#readme",
+  "homepage": "https://github.com/megmore/es-helper#readme",
   "peerDependencies": {
     "eslint": ">= 3"
   },
