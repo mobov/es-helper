@@ -21,7 +21,7 @@ export default {
   UPPER_CASE: /^[A-Z]+$/,
   LOWER_CASE: /^[a-z]+$/,
   HEX_COLOR: /^#[0-9a-fA-F]{6}$/,
-  STYLE_UNIT: /px|vw|rem|em|%$/,
+  STYLE_UNIT: /px|vw|rem|em|%|auto|unset$/,
   UA_CLIENT_MOBILE: /mobile/gi,
   UA_OS_IOS: /ipad|iphone/gi,
   UA_OS_ANDROID: /android/gi,

@@ -26,103 +26,120 @@ function sineaseOut(t, b, c, d) {
 	return c * ((t = t / d - 1) * t * t + 1) + b
 }
 const TRANS_FUNCS = ['linear', 'easeIn', 'strongEaseIn', 'strongEaseOut', 'sineaseIn', 'sineaseOut']
-//
-// /**
-//  * X向将元素滚动到可见位置
-//  * @param $scroller 要滚动的容器元素
-//  * @param $viewer 需要可见的元素
-//  * @param justify 滚动偏差值
-//  * @param duration 过渡时间
-//  * @param transition
-//  */
-// export function scrollToXView($scroller, { $viewer, justify = 0, duration = 500, transition = 'sineaseOut' }) {
-//   if (!$scroller || !$viewer) { return }
-// 	if (!TRANS_FUNCS.includes(transition)) { return }
-//   const rect = $viewer.getBoundingClientRect()
-//   const scroll = rect.left - $scroller.clientWidth + rect.width * 2 + justify
-//   const scrollStart = $scroller.scrollLeft
-// 	const transFunc = eval(transition)
-//   let start = null
-//   const step = (timestamp) => {
-//     if (!start) { start = timestamp }
-//     const stepScroll = transFunc(timestamp - start, 0, scroll, duration)
-//     const total = $scroller.scrollLeft = scrollStart + stepScroll
-//     if (total < scrollStart + scroll) {
-//       requestAnimationFrame(step)
-//     }
-//   }
-//   requestAnimationFrame(step)
-// }
-/**
- * X向将元素滚动一段距离
- * @param $scroller 要滚动的容器元素
- * @param justify 滚动偏差值： number或者string, top:表示滚动到头部， bottom表示底部
- * @param duration 滚动持续时间
- * @param transition
- */
-export function scrollToX($scroller, { justify = 0, duration = 500, transition = 'sineaseOut' }) {
-  if (!$scroller || justify === 0) { return }
-	if (!TRANS_FUNCS.includes(transition)) { return }
-  const scrollStart = $scroller.scrollLeft
-	const transFunc = eval(transition)
-	let start = null
-  const step = (timestamp) => {
-    if (!start) { start = timestamp }
-    const stepScroll = transFunc(timestamp - start, 0, Math.abs(justify), duration)
-    const total = $scroller.scrollLeft = justify > 0 ? scrollStart + stepScroll : scrollStart - stepScroll
-    if (
-      (justify > 0) && (total < scrollStart + justify) ||
-      (justify < 0) && (total > scrollStart + justify)
-    ) {
-      requestAnimationFrame(step)
-    }
-  }
-  requestAnimationFrame(step)
+
+const META_CODE = {
+	x: {
+		start: 'left',
+		size: 'width',
+		clientSize: 'clientWidth',
+		scrollStart: 'scrollLeft',
+		scrollSize: 'scrollWidth',
+	},
+	y: {
+		start: 'top',
+		size: 'height',
+		clientSize: 'clientHeight',
+		scrollStart: 'scrollTop',
+		scrollSize: 'scrollHeight',
+	}
 }
+
 /**
- * Y向滚动到头部
+ * 滚动基础方法
+ * @param axis 滚动轴线
  * @param $scroller
- * @param justify 滚动偏差值： number或者string, start:表示滚动到头部， end表示底部, 复数向下滚动， 正数向上滚动
- * @param $viewer,
+ * @param justify 滚动偏差值： number, 复数向下滚动， 正数向上滚动
+ * @param target 滚动目标, HTMLElement或者string, start:表示滚动到头部， end表示底部,
  * @param duration,
  * @param transition
+ * @param onFinish
  */
-export function scrollToY($scroller, { justify = 0, $viewer = null, duration = 500, transition = 'sineaseOut' }) {
-  if (!$scroller || justify === 0) { return }
-	if (!TRANS_FUNCS.includes(transition)) { return }
+function scrollFunc (
+	axis = 'x',
+	$scroller,
+	{
+		justify = 0,
+		target = 0,
+		duration = 500,
+		transition = 'sineaseOut',
+	}
+) {
+	console.log(arguments)
+	return new Promise((resolve) => {
+		if ( !$scroller || !TRANS_FUNCS.includes(transition)) {
+			resolve()
+		}
+		const META = META_CODE[axis]
+		let scroll = 0
 
-  const scroll = (() => {
-    if ($viewer) {
-	    const rect = $viewer.getBoundingClientRect()
-	    return rect.top - $scroller.clientHeight + rect.height + justify
-    } else {
-	    return justify === 'start' ? - $scroller.scrollTop
-		    : justify === 'end' ? $scroller.scrollHeight - $scroller.clientHeight - $scroller.scrollTop
-			    : -justify
-    }
-  })()
-  const scrollStart = $scroller.scrollTop
-  const direction = (justify === 'start' || justify > 0) ? '↑' : '↓'
+		// 滚动值计算
+		if (
+			typeof target !== 'number' && target !== 'start' && target !== 'end'
+		) {
+			const rect = target.getBoundingClientRect()
+			scroll = rect[META.start] - ($scroller[META.clientSize] - rect[META.size]) / 2 + justify
+		} else {
+			scroll = (
+				target === 'start'
+					? $scroller[META.scrollStart]
+					: target === 'end'
+					? $scroller[META.scrollSize] - $scroller[META.scrollStart] - $scroller[META.clientSize]
+					: target
+			) + justify
+		}
 
-  if (
-    (direction === '↓' && scrollStart === $scroller.scrollHeight - $scroller.clientHeight) ||
-    (direction === '↑' && scrollStart === 0)
-  ) { return }
+		if (scroll === 0) { resolve() }
 
-  const transFunc = eval(transition)
+		const scrollValue = $scroller[META.scrollSize] - $scroller[META.clientSize]
 
-  let start = null
-  const step = (timestamp) => {
-    if (!start) { start = timestamp }
-    const stepScroll = transFunc(timestamp - start, 0, scroll, duration)
-    const total = $scroller.scrollTop = scrollStart + stepScroll
+		const scrollStart = $scroller[META.scrollStart]
 
-    if (
-      (direction === '↓' && (total < scrollStart + scroll)) ||
-      (direction === '↑' && (total > scrollStart + scroll))
-    ) {
-      requestAnimationFrame(step)
-    }
-  }
-  requestAnimationFrame(step)
+		let start = null
+		let step = null
+		const transFunc = eval(transition)
+		// 滚动值矫正
+		if (scroll > 0) {
+			const maxScroll = scrollValue - scrollStart
+			scroll = scroll > maxScroll ? maxScroll : scroll
+
+			step = (timestamp) => {
+				if (!start) { start = timestamp }
+				let stepScroll = transFunc(timestamp - start, 0, scroll, duration)
+				stepScroll = stepScroll > scroll ? scroll : stepScroll
+				$scroller[META.scrollStart] = scrollStart + stepScroll
+
+				if (scroll > stepScroll) {
+					requestAnimationFrame(step)
+				}  else {
+					resolve()
+				}
+			}
+		} else {
+			const maxScroll = - $scroller[META.scrollStart]
+			scroll = scroll < maxScroll ? maxScroll : scroll
+
+			step = (timestamp) => {
+				if (!start) { start = timestamp }
+				let stepScroll = transFunc(timestamp - start, 0, scroll, duration)
+				stepScroll = stepScroll < scroll ? scroll : stepScroll
+				$scroller[META.scrollStart] = scrollStart + stepScroll
+
+				if (scroll < stepScroll) {
+					requestAnimationFrame(step)
+				} else {
+					resolve()
+				}
+			}
+		}
+		requestAnimationFrame(step)
+	})
 }
+
+export function scrollToX() {
+	return scrollFunc('x', ...arguments)
+}
+
+export function scrollToY() {
+	return scrollFunc('y', ...arguments)
+}
+

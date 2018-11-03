@@ -13,8 +13,8 @@ import RegexMap from './regexMap'
  * @author   nocoolyoyo
  */
 export function isURL(val) {
-  RegexMap.url.lastIndex = 0
-  return RegexMap.url.test(val)
+  RegexMap.URL.lastIndex = 0
+  return RegexMap.URL.test(val)
 }
 
 /**
@@ -27,8 +27,8 @@ export function isURL(val) {
  * @author   nocoolyoyo
  */
 export function isLowerCase(val) {
-  RegexMap.lowerCase.lastIndex = 0
-  return RegexMap.lowerCase.test(val)
+  RegexMap.LOWER_CASE.lastIndex = 0
+  return RegexMap.LOWER_CASE.test(val)
 }
 
 /**
@@ -38,8 +38,8 @@ export function isLowerCase(val) {
  * @returns   {boolean}
  */
 export function isUpperCase(val) {
-  RegexMap.upperCase.lastIndex = 0
-  return RegexMap.upperCase.test(val)
+  RegexMap.UPPER_CASE.lastIndex = 0
+  return RegexMap.UPPER_CASE.test(val)
 }
 
 /**
@@ -49,8 +49,8 @@ export function isUpperCase(val) {
  * @returns   {boolean}
  */
 export function isEmail(val) {
-  RegexMap.email.lastIndex = 0
-  return RegexMap.email.test(val)
+  RegexMap.EMAIL.lastIndex = 0
+  return RegexMap.EMAIL.test(val)
 }
 
 /**
@@ -79,9 +79,9 @@ export function isEmptyObject(val) {
  * @return {boolean}
  */
 export function isHexColor(val) {
-  RegexMap.hexColor.lastIndex = 0
   if (typeof val !== 'string') { return false }
-  return RegexMap.hexColor.test(val)
+	RegexMap.HEX_COLOR.lastIndex = 0
+  return RegexMap.HEX_COLOR.test(val)
 }
 
 /**
@@ -90,9 +90,9 @@ export function isHexColor(val) {
  * @return {boolean}
  */
 export function isStyleUnit(val) {
-  RegexMap.styleUnit.lastIndex = 0
   if (typeof val !== 'string') { return false }
-  return RegexMap.styleUnit.test(val)
+	RegexMap.STYLE_UNIT.lastIndex = 0
+  return RegexMap.STYLE_UNIT.test(val)
 }
 
 /**

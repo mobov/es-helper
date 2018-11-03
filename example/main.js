@@ -1,17 +1,34 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { initClient,
-	     scrollToXView, scrollToYView, scrollToX, scrollToY,getClient } from '../src/index'
-
+import { initClient, isStyleUnit, RegexMap,
+	     scrollToXView, scrollToYView, scrollToX, scrollToY, scrollTo, getClient } from '../src/index'
+console.log(RegexMap)
+console.log(isStyleUnit('400px'))
 
 
 initClient()
-let justify = 'end'
-setInterval(()=> {
+
+document.querySelector('.scroller').scrollTop = 9000
+document.querySelector('.scroller').scrollLeft = 9000
+setTimeout(()=> {
 	// justify = justify ==='start' ? 'end' : 'start'
-	justify = -100
-	scrollToY(document.querySelector('.scroller'), justify)
-}, 1000)
+
+
+	// scrollToY(document.querySelector('.scroller'), {
+	// 	target: document.querySelector('.target'),
+	// 	justify: 0
+	// })
+	// scrollToX(document.querySelector('.scroller'), {
+	// 	target: document.querySelector('.target'),
+	// 	justify: 0
+	// })
+	scrollTo(document.querySelector('.scroller'), {
+		target: document.querySelector('.target'),
+		justify: 0
+	})
+}, 500)
 console.log(getClient())
+
+
 
