@@ -1,6 +1,6 @@
 {
   "name": "@megmore/es-helper",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "前端常用工具方法集合",
   "main": "index.cjs.js",
   "module": "index.es.js",
@@ -11,9 +11,7 @@
     "build:cjs": "cross-env TYPE=cjs rollup -c build/build.js",
     "build:es": "cross-env TYPE=es rollup -c build/build.js",
     "build": "npm run build:es && npm run build:umd && npm run build:cjs",
-    "publish:onemt": "node ./pub --registry=onemt",
-    "publish:npm": "node ./pub --registry=npm",
-    "pub": "npm run build && npm run publish:npm",
+    "pub": "npm run build && node ./pub",
     "debug:cjs":"cross-env TYPE=cjs  rollup -c --debug build/build.js"
   },
   "repository": {
