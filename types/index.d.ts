@@ -1,7 +1,7 @@
 /**
  * Created by nocoolyoyo on 2018/11/3.
  */
-declare namespace "@megmore/es-helper" {
+declare namespace EsHelper {
 
     export function scrollToX(
         $scroller: HTMLElement,
@@ -11,7 +11,7 @@ declare namespace "@megmore/es-helper" {
             duration ?: number;
             transition ?: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut';
         }
-    ): Promise
+    ): any
 
     export function scrollToY(
         $scroller: HTMLElement,
@@ -21,7 +21,7 @@ declare namespace "@megmore/es-helper" {
             duration ?: number;
             transition ?: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut';
         }
-    ): Promise
+    ): any
 
     export function strStyle(val: any): string
     export function getStyle(dom: HTMLElement, attr: string): string

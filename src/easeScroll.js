@@ -64,7 +64,6 @@ function scrollFunc (
 		transition = 'sineaseOut',
 	}
 ) {
-	console.log(arguments)
 	return new Promise((resolve) => {
 		if ( !$scroller || !TRANS_FUNCS.includes(transition)) {
 			resolve()
