@@ -20,6 +20,10 @@ node_modules/
 npm-debug.log
 examples
 examples/
+example
+example/
+build
+build/
 
 index.html
 config.js

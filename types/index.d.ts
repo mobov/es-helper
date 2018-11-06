@@ -1,7 +1,7 @@
 /**
  * Created by nocoolyoyo on 2018/11/3.
  */
-declare namespace EsHelper {
+declare module "@megmore/es-helper" {
 
     export function scrollToX(
         $scroller: HTMLElement,
