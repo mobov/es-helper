@@ -55,7 +55,7 @@ function scrollFunc (
 		} else {
 			scroll = (
 				target === 'start'
-					? $scroller[META.scrollStart]
+					? - $scroller[META.scrollStart]
 					: target === 'end'
 					? $scroller[META.scrollSize] - $scroller[META.scrollStart] - $scroller[META.clientSize]
 					: target
