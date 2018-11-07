@@ -12,7 +12,8 @@ export {
   isEmptyObject, isHexColor, isStyleUnit,
   isOSWindows, isOSIos, isOSAndroid, isMobile,
 } from './validate'
-export { scrollToY, scrollToX, sineaseOut, easeIn, strongEaseOut, strongEaseIn, sineaseIn, linear } from './easeScroll'
+export { scrollToY, scrollToX } from './easeScroll'
+export { sineaseOut, easeIn, strongEaseOut, strongEaseIn, sineaseIn, linear } from './tween'
 export { default as findNode } from './findNode'
 export { default as deepCopy } from './deepCopy'
 export { default as deepEqual } from './deepEqual'
