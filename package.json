@@ -1,6 +1,6 @@
 {
   "name": "@megmore/es-helper",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "前端常用工具方法集合",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",

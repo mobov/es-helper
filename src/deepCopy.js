@@ -1,4 +1,4 @@
-export default  function deepCopy(source) {//对象深拷贝
+export default function deepCopy(source) {//对象深拷贝
  let target;
  if (source instanceof Array) {
    target = [];

@@ -3,7 +3,7 @@
  */
 export { default as copy2Board } from './copy2Board'
 export { initClient, getClient } from './device'
-export { getStyle, strStyle } from './styleUtils'
+export { getStyle, strStyle, camelCase } from './styleUtils'
 export { getUrlParam, appendUrlParams } from './urlParams'
 export { default as imageLoaded } from './imageLoaded'
 export { default as RegexMap } from './regexMap'

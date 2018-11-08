@@ -46,6 +46,8 @@ export function initClient(lang, isMount = true) {
 
     if (Client.lang === 'ar') {
       $root.setAttribute('dir', 'rtl')
+    } else if($root.hasAttribute('dir')) {
+	    $root.removeAttribute('dir')
     }
   }
   return Client
