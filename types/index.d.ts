@@ -1,9 +1,9 @@
-import {ScrollFunc} from "@megmore/es-helper";
-
 /**
  * Created by nocoolyoyo on 2018/11/3.
  */
 declare module "@megmore/es-helper" {
+    // deepCopy
+    export function deepCopy(source: any): any
     // device
     export function initClient(lang: string, isMount?: boolean): string
 
@@ -40,7 +40,18 @@ declare module "@megmore/es-helper" {
     export function camelCase(name: string): string
 
     // validate
-    export function isStyleUnit(val: string): boolean
+    export function isTrimEmpty(val: string): boolean
+    export function isEmail(val: string): boolean
+    export function isLowerCase(val: string): boolean
+    export function isUpperCase(val: string): boolean
     export function isHexColor(val: string): boolean
+    export function isStyleUnit(val: string): boolean
+    export function isURL(val: string): boolean
+    export function isEmptyObject(val: string): boolean
+    export function isOSWindows(): boolean
+    export function isOSIos(): boolean
+    export function isOSAndroid(): boolean
+    export function isMobile(): boolean
+
 
 }

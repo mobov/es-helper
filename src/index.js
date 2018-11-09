@@ -10,7 +10,7 @@ export { default as RegexMap } from './regexMap'
 export {
   isTrimEmpty, isEmail, isLowerCase, isUpperCase, isURL,
   isEmptyObject, isHexColor, isStyleUnit,
-  isOSWindows, isOSIos, isOSAndroid, isMobile,
+  isOSWindows, isOSIos, isOSAndroid, isMobile
 } from './validate'
 export { scrollToY, scrollToX } from './easeScroll'
 export { sineaseOut, easeIn, strongEaseOut, strongEaseIn, sineaseIn, linear } from './tween'
