@@ -4,7 +4,17 @@
  */
 import { isEmptyObject } from './validate'
 import { isMobile, isOSAndroid, isOSIos, isOSWindows } from './validate'
-const Client = { }
+const Client = { 
+  get version () {
+    if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
+      return navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
+    } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
+      return navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
+    } else {
+      return ''
+    }
+  }
+}
 
 /**
  * @function 初始化硬件信息
