@@ -4,7 +4,7 @@
  */
 import { isEmptyObject } from './validate'
 import { isMobile, isOSAndroid, isOSIos, isOSWindows } from './validate'
-const Client = { }
+const Client = {}
 
 /**
  * @function 初始化硬件信息
@@ -12,23 +12,23 @@ const Client = { }
  * @param isMount
  */
 export function initClient(lang, isMount = true) {
+  Object.defineProperty(Client, 'version', {
+    get() {
+      if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
+        return navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
+      } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
+        return navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
+      } else {
+        return ''
+      }
+    },
+  });
   if (isMobile()) {
     Client.type = 'mobile'
-    Object.defineProperty(Client,'version', {
-      get(){
-        if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
-          return navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
-        } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
-          return navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
-        } else {
-          return ''
-        }
-      },
-    });
+
   } else {
     Client.type = 'pc'
   }
-
   if (isOSIos()) {
     Client.OS = 'IOS'
   } else if (isOSAndroid()) {
@@ -57,8 +57,8 @@ export function initClient(lang, isMount = true) {
 
     if (Client.lang === 'ar') {
       $root.setAttribute('dir', 'rtl')
-    } else if($root.hasAttribute('dir')) {
-	    $root.removeAttribute('dir')
+    } else if ($root.hasAttribute('dir')) {
+      $root.removeAttribute('dir')
     }
   }
   return Client
