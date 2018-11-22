@@ -51,7 +51,6 @@ function scrollFunc (
 		// 滚动值计算
 		if (isDomTarget) {
 			const rect = target.getBoundingClientRect()
-			// scroll = rect[META.start] - ($scroller[META.clientSize] - rect[META.size]) / 2 + justify
 			const posScroll = position === 'start'
 				? 0
 				: position === 'end'
