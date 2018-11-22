@@ -37,6 +37,7 @@ function scrollFunc (
 		target = 0,
 		duration = 500,
 		transition = 'sineaseOut',
+		position = 'center',
 	}
 ) {
 	return new Promise((resolve) => {
@@ -44,14 +45,19 @@ function scrollFunc (
 			resolve()
 		}
 		const META = META_CODE[axis]
+		const isDomTarget = (typeof target !== 'number' && target !== 'start' && target !== 'end')
 		let scroll = 0
 
 		// 滚动值计算
-		if (
-			typeof target !== 'number' && target !== 'start' && target !== 'end'
-		) {
+		if (isDomTarget) {
 			const rect = target.getBoundingClientRect()
-			scroll = rect[META.start] - ($scroller[META.clientSize] - rect[META.size]) / 2 + justify
+			// scroll = rect[META.start] - ($scroller[META.clientSize] - rect[META.size]) / 2 + justify
+			const posScroll = position === 'start'
+				? 0
+				: position === 'end'
+					? ($scroller[META.clientSize] - rect[META.size])
+					: (($scroller[META.clientSize] - rect[META.size]) / 2)
+			scroll = rect[META.start] - posScroll  + justify
 		} else {
 			scroll = (
 				target === 'start'

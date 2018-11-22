@@ -15,19 +15,25 @@ let step = 1000
 setTimeout(()=> {
 	// justify = justify ==='start' ? 'end' : 'start'
 
-
-	scrollToY(document.querySelector('.scroller'), {
-		target: 'end',
-		justify: 0
-	})
-	scrollToX(document.querySelector('.scroller'), {
-		target: 'end',
-		justify: 0
-	})
-	// scrollToX(document.querySelector('.scroller'), {
-	// 	target: document.querySelector('.target'),
+	//
+	// scrollToY(document.querySelector('.scroller'), {
+	// 	target: 'end',
 	// 	justify: 0
 	// })
+	// scrollToX(document.querySelector('.scroller'), {
+	// 	target: 'end',
+	// 	justify: 0
+	// })
+	scrollToX(document.querySelector('.scroller'), {
+		target: document.querySelector('.target'),
+		position: 'end',
+		justify: 0
+	})
+	scrollToY(document.querySelector('.scroller'), {
+		target: document.querySelector('.target'),
+		position: 'end',
+		justify: 0
+	})
 
 }, 500)
 console.log(getClient())

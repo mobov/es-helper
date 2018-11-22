@@ -27,7 +27,7 @@ declare module "@megmore/es-helper" {
              justify ?: number
              duration ?: number
              transition ?: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut'
-         }): Promise<any>,
+         }): Promise<void>,
     }
 
     export const scrollToX: ScrollFunc
@@ -52,6 +52,4 @@ declare module "@megmore/es-helper" {
     export function isOSIos(): boolean
     export function isOSAndroid(): boolean
     export function isMobile(): boolean
-
-
 }

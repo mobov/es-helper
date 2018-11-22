@@ -62,6 +62,7 @@ yarn add @megmore/es-helper or npm install @megmore/es-helper
 | justify | number | 0 | 滚动偏差值，在target的基础最终计算滚动值加上该值  |
 | duration | number | 500 | 过渡时间 |
 | transition | 'linear' / 'easeIn' / 'strongEaseIn' / 'strongEaseOut' / 'sineaseIn' / 'sineaseOut' | 'sineaseOut' | 过渡动画 |
+| position | 'start' / 'end' / 'center' | 'center' | target为DOM时候滚动到dom视图点 |
 
 ### `scrollToX($scroller, { target, justify, duration, transition }): promise`
 > 滚动到X轴某个位置
