@@ -24,6 +24,7 @@ declare module "@megmore/es-helper" {
         ($scroller: HTMLElement,
          options: {
              target: HTMLElement | number |  'start' | 'end'
+             position: 'center' |  'start' | 'end'
              justify ?: number
              duration ?: number
              transition ?: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut'
