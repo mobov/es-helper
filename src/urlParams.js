@@ -10,7 +10,7 @@ export function getUrlParams(url = window.location.href) {
 	const _url = decodeURI(url.replace(/\+/g, '%20'))
   // console.log(_url)
   const result = {}
-  let queryArray = url.split('?')
+  let queryArray = _url.split('?')
   if (queryArray.length <= 1) {
     return result
   }
