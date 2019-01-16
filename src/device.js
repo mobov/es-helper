@@ -12,17 +12,20 @@ const Client = {}
  * @param isMount
  */
 export function initClient(lang, isMount = true) {
-  Object.defineProperty(Client, 'version', {
-    get() {
-      if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
-        return navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
-      } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
-        return navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
-      } else {
-        return ''
-      }
-    },
-  });
+  if (!Client.hasOwnProperty('version')) {
+	  Object.defineProperty(Client, 'version', {
+		  get() {
+			  if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
+				  return navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
+			  } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
+				  return navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
+			  } else {
+				  return ''
+			  }
+		  },
+	  });
+  }
+
   if (isMobile()) {
     Client.type = 'mobile'
 

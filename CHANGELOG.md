@@ -1,5 +1,9 @@
 # 更新日志
 
+*2018-01-16*
+
+- urlParams 添加getUrlParams,,  appendUrlParams优化
+
 *2018-11-22*
 
 - easeScroll添加dom滚动视图点

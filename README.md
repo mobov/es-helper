@@ -92,6 +92,13 @@ yarn add @megmore/es-helper or npm install @megmore/es-helper
 | name | string |   |参数名  |
 | url | string |  location.href | url  |
 
+### `getUrlParam(url): string`
+> 获取指定的URL全部参数值
+
+| 参数名称 | 类型 | 默认值 | 说明 |  
+| :--- | :--- | :--- | :--- | 
+| url | string |  location.href | url  |
+
 ### `appendUrlParams(params, url): string`
 > 追加指定的URL参数值
 

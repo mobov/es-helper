@@ -18,6 +18,23 @@
             <div class="target" style="height: 300px; width: 300px;margin-left:4000px;margin-top: 4000px;background: indigo"></div>
         </div>
     </div>
+    <button id="clipboard">拷贝</button>
     <script src="main.js"></script>
+		<script>
+			setTimeout(() => {
+				console.log(3)
+			});
+
+			function bar() {
+				console.log(1);
+			}
+
+			function foo() {
+				console.log(2);
+				bar();
+			}
+
+			foo();
+		</script>
 </body>
 </html>
