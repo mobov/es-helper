@@ -3,7 +3,7 @@
 
 ### 安装
 ```shell
-yarn add @megmore/es-helper or npm install @megmore/es-helper
+yarn add @megmore/es-helper 
 ```
 
 ### `initClient(lang, isMount): {type, lang, OS}`
