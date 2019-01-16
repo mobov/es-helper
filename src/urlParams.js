@@ -49,14 +49,16 @@ export function getUrlParam(name, url = window.location.href) {
  * @author: nocoolyoyo
  * @date: 2018-09-04
  */
-export function appendUrlParams(params = {}, url = window.location.href) {
+export function appendUrlParams(params = {}, url = window.location.href, sort = false) {
 	let cleanUrl = url.split('?')[0]
 
   const oriParams = getUrlParams(url)
 	const newParams = Object.assign(oriParams, params)
 
   // url已存在参数
-  Object.keys(newParams).forEach(key => {
+  let Keys = Object.keys(newParams)
+  if (sort) { Keys = Keys.sort() }
+	Keys.forEach(key => {
 	  cleanUrl += `&${key}=${newParams[key]}`
   })
 

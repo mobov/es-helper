@@ -99,13 +99,14 @@ yarn add @megmore/es-helper
 | :--- | :--- | :--- | :--- | 
 | url | string |  location.href | url  |
 
-### `appendUrlParams(params, url): string`
+### `appendUrlParams(params, url, sort): string`
 > 追加指定的URL参数值
 
 | 参数名称 | 类型 | 默认值 | 说明 |  
 | :--- | :--- | :--- | :----: | 
 | params | object |   |参数键值对   |
 | url | string |  location.href | url  |
+| sort | boolean |  false | 是否对参数做重组排序   |
 
 ### `arrayUnique:(arr:array)=>Array`
 > 数组去重
