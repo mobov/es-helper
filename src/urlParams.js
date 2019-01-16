@@ -8,7 +8,7 @@
  */
 export function getUrlParams(url = window.location.href) {
 	const _url = decodeURI(url.replace(/\+/g, '%20'))
-  console.log(_url)
+  // console.log(_url)
   const result = {}
   let queryArray = url.split('?')
   if (queryArray.length <= 1) {
@@ -17,7 +17,7 @@ export function getUrlParams(url = window.location.href) {
 	queryArray = queryArray[1].split('&')
 	queryArray.forEach(query =>  {
 	  const queryKVArray= query.split('=')
-    console.log(queryKVArray)
+    // console.log(queryKVArray)
 		result[queryKVArray[0]] = queryKVArray[1]
   })
 	return result
@@ -50,14 +50,16 @@ export function getUrlParam(name, url = window.location.href) {
  * @date: 2018-09-04
  */
 export function appendUrlParams(params = {}, url = window.location.href) {
+	let cleanUrl = url.split('?')[0]
+
   const oriParams = getUrlParams(url)
 	const newParams = Object.assign(oriParams, params)
+
   // url已存在参数
-  let tempStr = ''
   Object.keys(newParams).forEach(key => {
-    tempStr += `&${key}=${params[key]}`
+	  cleanUrl += `&${key}=${newParams[key]}`
   })
-	tempStr = tempStr.replace(/&/, '?')
-  url += tempStr
-  return url
+
+	cleanUrl = cleanUrl.replace(/&/, '?')
+  return cleanUrl
 }

@@ -45,6 +45,11 @@ console.log(getClient())
 console.log(appendUrlParams({
 	haha: 1
 }))
+
+console.log(appendUrlParams({
+	haha: 1,
+	hehhe: 12213
+}, 'http://www.baidu.com?es=111'))
 document.querySelector('#clipboard').addEventListener('click', function () {
 	copy2Board('哈哈哈哈哈哈哈')
 })
