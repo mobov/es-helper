@@ -19,7 +19,7 @@ declare module "@megmore/es-helper" {
 
     export function getUrlParams(url: string): string
 
-    export function appendUrlParams(params: any, url: string): string
+    export function appendUrlParams(params: any, url: string, sort: boolean): string
 
     // easeScroll
     interface ScrollFunc {
