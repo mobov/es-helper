@@ -13,6 +13,8 @@ yarn add @megmore/es-helper
 | :--- | :--- | :--- | :----: | 
 | lang | string | navigator.language | 语言 | 
 | isMount  | boolean | true | 是否挂载节点信息 |
+| version  | string | '' | 系统版本 |
+| OS  | string | '' | 系统 |
 
 ### `getClient(): { type, lang, OS }`
 > 获取初始化的设备信息

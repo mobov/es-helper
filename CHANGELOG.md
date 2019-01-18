@@ -4,6 +4,10 @@
 
 - urlParams 添加getUrlParams,,  appendUrlParams优化
 
+*2018-01-18*
+
+- 优化initClient
+
 *2018-11-22*
 
 - easeScroll添加dom滚动视图点
