@@ -3,6 +3,10 @@
  */
 // deepCopy
 export function deepCopy(source: any): any
+
+export function findNode(options: { data: any[], field: string, key: string, childField: string }): any
+// deepCopy
+export function clearArray(arr: any[]): void
 // device
 export function initClient(lang: string, isMount?: boolean): string
 

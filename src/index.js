@@ -17,4 +17,4 @@ export { sineaseOut, easeIn, strongEaseOut, strongEaseIn, sineaseIn, linear } fr
 export { default as findNode } from './findNode'
 export { default as deepCopy } from './deepCopy'
 export { default as deepEqual } from './deepEqual'
-export { arrayUnique, uniqueArrayByField } from './arrayUnique'
+export { clearArray, arrayUnique, uniqueArrayByField } from './array'

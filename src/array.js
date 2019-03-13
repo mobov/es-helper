@@ -1,3 +1,9 @@
+export const clearArray = (arr) => {
+	if (arr instanceof Array) {
+		arr.splice(0, arr.length)
+	}
+}
+
 export const arrayUnique = (arr) => {//Array<String|Number>去重
   let result = [];
   let str = [];
