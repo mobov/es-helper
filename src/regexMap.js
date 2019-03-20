@@ -26,4 +26,5 @@ export default {
   UA_OS_IOS: /ipad|iphone/gi,
   UA_OS_ANDROID: /android/gi,
   UA_OS_WINDOWS: /window|mac|linux/gi,
+  BASE64: /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)\s*$/i
 }

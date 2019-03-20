@@ -22,6 +22,7 @@ export const arrayUnique = (arr) => {//Array<String|Number>去重
   })
   return result;
 }
+
 export const uniqueArrayByField = (arr, field = 'id') => {// Array<Object>根据某个字段去重
   const result = []
   arr.forEach(item => {

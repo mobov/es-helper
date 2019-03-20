@@ -58,3 +58,4 @@ export function isOSWindows(): boolean
 export function isOSIos(): boolean
 export function isOSAndroid(): boolean
 export function isMobile(): boolean
+export function isBase64(val: string): boolean

@@ -1,5 +1,9 @@
 # 更新日志
 
+*2018-03-20*
+
+- 添加base64 RegMAP
+
 *2018-01-16*
 
 - urlParams 添加getUrlParams,,  appendUrlParams优化

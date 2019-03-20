@@ -18,6 +18,17 @@ export function isURL(val) {
 }
 
 /**
+ * BASE64
+ * @param val
+ * @return {boolean}
+ */
+export function isBase64(val) {
+	RegexMap.BASE64.lastIndex = 0
+	return RegexMap.BASE64.test(val)
+}
+
+
+/**
  * 小写校验
  *
  * @param    {string}  val   被校验参数
