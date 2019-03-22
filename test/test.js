@@ -168,56 +168,8 @@ describe('util测试', function () {
       assert.deepEqual(util.uniqueArrayByField(arr), [{ id: 1 }, { id: 2 }, { id: 3 }]);
     });
     it('JSON深度对比', function () {
-      const a = {
-        a: [1, 2, 3, 4, 5],
-        b: {
-          b1: [3, 2, 1],
-          b2: {
-            b21: {
-              b211: [3, 3, 4, 5, {
-                x: 'zz',
-                l: {
-                  qq: 'zzzz'
-                }
-              }]
-            }
-          }
-        }
-      }
-      const b = {
-        a: [1, 2, 3, 4, 5],
-        b: {
-          b1: [3, 2, 1],
-          b2: {
-            b21: {
-              b211: [3, 3, 4, 5, {
-                x: 'zz',
-                l: {
-                  qq: 'zzzz'
-                }
-              }]
-            }
-          }
-        }
-      }
-      const c = {
-        a: [1, 2, 3, 4, 5],
-        b: {
-          b1: [3, 2, 1],
-          b2: {
-            b21: {
-              b211: [3, 3, 4, 5, {
-                x: 'zz',
-                l: {
-                  qq: 'zzzzx'
-                }
-              }]
-            }
-          }
-        }
-      }
-      assert.equal(util.deepEqual(a, b), true);
-      assert.equal(util.deepEqual(a, c), false);
+      assert.equal(util.deepEqual(null, 'asd'), false);
+      assert.equal(util.deepEqual(null, null), true);
     });
     it('节点查找', () => {
       const node = util.findNode({
