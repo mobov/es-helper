@@ -1,4 +1,4 @@
-import { sineaseIn, linear, strongEaseIn, strongEaseOut, easeIn, sineaseOut } from "./tween";
+import { sineaseIn, linear, strongEaseIn, strongEaseOut, easeIn, sineaseOut } from './tween'
 
 const TRANS_FUNCS = ['linear', 'easeIn', 'strongEaseIn', 'strongEaseOut', 'sineaseIn', 'sineaseOut']
 
@@ -19,6 +19,13 @@ const META_CODE = {
 	}
 }
 
+interface ScrollFuncOpts {
+    target: HTMLElement | number |  'start' | 'end'
+    justify: number
+    duration: number
+    transition: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut'
+    position: 'center' |  'start' | 'end'
+}
 /**
  * 滚动基础方法
  * @param axis 滚动轴线
@@ -30,16 +37,16 @@ const META_CODE = {
  * @param onFinish
  */
 function scrollFunc (
-	axis = 'x',
-	$scroller,
+	axis: 'x' | 'y' = 'x',
+	$scroller: HTMLElement,
 	{
-		justify = 0,
+        justify = 0,
 		target = 0,
 		duration = 500,
 		transition = 'sineaseOut',
 		position = 'center',
-	}
-) {
+	} = {} as ScrollFuncOpts
+): Promise<void> {
 	return new Promise((resolve) => {
 		if ( !$scroller || !TRANS_FUNCS.includes(transition)) {
 			resolve()
@@ -50,32 +57,38 @@ function scrollFunc (
 
 		// 滚动值计算
 		if (isDomTarget) {
-			const rect = target.getBoundingClientRect()
+			const rect = (target as HTMLElement).getBoundingClientRect()
 			const posScroll = position === 'start'
 				? 0
 				: position === 'end'
+					// @ts-ignore
 					? ($scroller[META.clientSize] - rect[META.size])
+                    // @ts-ignore
 					: (($scroller[META.clientSize] - rect[META.size]) / 2)
+            // @ts-ignore
 			scroll = rect[META.start] - posScroll  + justify
 		} else {
+            // @ts-ignore
 			scroll = (
 				target === 'start'
+                    // @ts-ignore
 					? - $scroller[META.scrollStart]
 					: target === 'end'
+                    // @ts-ignore
 					? $scroller[META.scrollSize] - $scroller[META.scrollStart] - $scroller[META.clientSize]
 					: target
 			) + justify
 		}
 
 		if (scroll === 0) { resolve() }
-
+        // @ts-ignore
 		const scrollValue = $scroller[META.scrollSize] - $scroller[META.clientSize]
-
+        // @ts-ignore
 		const scrollStart = $scroller[META.scrollStart]
 
-		let start = null
-		let step = null
-		//eval(transition)
+		let start: number
+		let step: number
+		//eval(transition): number
 
 		const transFunc = (()=>{
 			if (transition === 'linear') {
@@ -97,45 +110,53 @@ function scrollFunc (
 		if (scroll > 0) {
 			const maxScroll = scrollValue - scrollStart
 			scroll = scroll > maxScroll ? maxScroll : scroll
-
+            // @ts-ignore
 			step = (timestamp) => {
 				if (!start) { start = timestamp }
+                // @ts-ignore
 				let stepScroll = transFunc(timestamp - start, 0, scroll, duration)
 				stepScroll = stepScroll > scroll ? scroll : stepScroll
+                // @ts-ignore
 				$scroller[META.scrollStart] = scrollStart + stepScroll
 
 				if (scroll > stepScroll) {
+                    // @ts-ignore
 					requestAnimationFrame(step)
 				}  else {
 					resolve()
 				}
 			}
 		} else {
+            // @ts-ignore
 			const maxScroll = - $scroller[META.scrollStart]
 			scroll = scroll < maxScroll ? maxScroll : scroll
-
+            // @ts-ignore
 			step = (timestamp) => {
 				if (!start) { start = timestamp }
+                // @ts-ignore
 				let stepScroll = transFunc(timestamp - start, 0, scroll, duration)
 				stepScroll = stepScroll < scroll ? scroll : stepScroll
+                // @ts-ignore
 				$scroller[META.scrollStart] = scrollStart + stepScroll
 
 				if (scroll < stepScroll) {
+                    // @ts-ignore
 					requestAnimationFrame(step)
 				} else {
 					resolve()
 				}
 			}
 		}
+        // @ts-ignore
 		requestAnimationFrame(step)
 	})
 }
 
-export function scrollToX() {
-	return scrollFunc('x', ...arguments)
+export function scrollToX ($scroller: HTMLElement, scrollOpts: ScrollFuncOpts) {
+	return scrollFunc('x', $scroller, scrollOpts)
 }
 
-export function scrollToY() {
-	return scrollFunc('y', ...arguments)
+export function scrollToY ($scroller: HTMLElement, scrollOpts: ScrollFuncOpts) {
+	return scrollFunc('y', $scroller, scrollOpts)
 }
 

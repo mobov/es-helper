@@ -1,15 +1,10 @@
 import ClipboardJS from 'clipboard'
 
 /**
- * @module  封装clipboard的复制功能
- *
+ * 封装clipboard的复制功能
  * @param text
- * @return {Promise<any>}
- *
- * @date      2018-03-01
- * @author   nocoolyoyo
  */
-export default function clip2Board(text = '') {
+export default function clip2Board(text: string = ''): Promise<string> {
   const domId = `clipDom${new Date().getTime()}`
   const $dom = document.createElement('button')
   const $container = document.body

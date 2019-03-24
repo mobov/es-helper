@@ -6,9 +6,9 @@ import { eslint } from 'rollup-plugin-eslint'
 import packages from '../package.json'
 
 const config = {
-  input: 'src/index.js',
+  input: 'lib-es/index.js',
   output: {
-    file: `lib/index.${process.env.TYPE}.js`,
+    file: `lib-${process.env.TYPE}/index.js`,
     format: process.env.TYPE,
     name: 'EsHelper',
   },
