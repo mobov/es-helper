@@ -63,21 +63,28 @@ export function deepCopy(source) {
     }
     return target;
 }
-export function deepEqual(obj1, obj2) {
+export const typeEqual = (v1, v2) => {
+    const allIsNotNull = [v1, v2].every(v => v !== null);
+    if (allIsNotNull) {
+        return typeof v1 === typeof v2;
+    }
+    return [v1, v2].every(v => v === null);
+};
+export const deepEqual = (obj1, obj2) => {
     let result = true;
     if (obj1 === obj2) {
         return true;
     }
-    if ((typeof obj1) !== (typeof obj2)) {
+    if (!typeEqual(obj1, obj2)) {
         return false;
     }
-    if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) { //数组长度不同
+    if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) { // 数组长度不同
         return result = false;
     }
     for (let prop in obj1) {
         let val1 = obj1[prop];
         let val2 = obj2[prop];
-        if ((typeof val1) !== (typeof val2)) { //数据类型不同
+        if ((typeof val1) !== (typeof val2)) { // 数据类型不同
             return result = false;
         }
         else if (typeof val1 === 'object') {
@@ -91,7 +98,7 @@ export function deepEqual(obj1, obj2) {
         }
     }
     return result;
-}
+};
 /**
  *
  * @param data 数据源

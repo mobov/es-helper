@@ -112,19 +112,32 @@ function deepCopy(source) {
 
   return target;
 }
-function deepEqual(obj1, obj2) {
+var typeEqual = function typeEqual(v1, v2) {
+  var allIsNotNull = [v1, v2].every(function (v) {
+    return v !== null;
+  });
+
+  if (allIsNotNull) {
+    return _typeof_1(v1) === _typeof_1(v2);
+  }
+
+  return [v1, v2].every(function (v) {
+    return v === null;
+  });
+};
+var deepEqual = function deepEqual(obj1, obj2) {
   var result = true;
 
   if (obj1 === obj2) {
     return true;
   }
 
-  if (_typeof_1(obj1) !== _typeof_1(obj2)) {
+  if (!typeEqual(obj1, obj2)) {
     return false;
   }
 
   if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) {
-    //数组长度不同
+    // 数组长度不同
     return result = false;
   }
 
@@ -133,7 +146,7 @@ function deepEqual(obj1, obj2) {
     var val2 = obj2[prop];
 
     if (_typeof_1(val1) !== _typeof_1(val2)) {
-      //数据类型不同
+      // 数据类型不同
       return result = false;
     } else if (_typeof_1(val1) === 'object') {
       result = deepEqual(val1, val2);
@@ -147,7 +160,7 @@ function deepEqual(obj1, obj2) {
   }
 
   return result;
-}
+};
 /**
  *
  * @param data 数据源

@@ -2,7 +2,8 @@ export declare const arrayClear: (arr: any[]) => void;
 export declare const arrayUnique: <T = string | number>(arr: T[]) => T[];
 export declare const arrayUniqueByField: <T = any>(arr: T[], field?: string) => T[];
 export declare function deepCopy<T = any>(source: T): T;
-export declare function deepEqual(obj1: any, obj2: any): boolean;
+export declare const typeEqual: (v1: any, v2: any) => boolean;
+export declare const deepEqual: (obj1: any, obj2: any) => boolean;
 /**
  *
  * @param data 数据源

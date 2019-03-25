@@ -1,11 +1,12 @@
 {
   "name": "@megmore/es-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "前端常用工具方法集合",
   "main": "lib-cjs/index.js",
   "module": "lib-es/index.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "test": "mocha",
     "serve": "webpack-dev-server --open --config build/serve.js",
     "build:umd": "cross-env TYPE=umd rollup -c build/build.js",
     "build:cjs": "cross-env TYPE=cjs rollup -c build/build.js",

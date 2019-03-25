@@ -61,21 +61,29 @@ export function deepCopy<T = any>(source: T): T {//对象深拷贝
     return target
 }
 
-export function deepEqual(obj1: any, obj2: any): boolean {//JSON对象深度对比
+export const typeEqual = (v1: any, v2: any): boolean => {
+    const allIsNotNull = [v1, v2].every(v => v !== null)
+    if (allIsNotNull) {
+        return typeof v1 === typeof v2
+    }
+    return [v1, v2].every(v => v === null)
+}
+export const deepEqual = (obj1: any, obj2: any): boolean => { // JSON对象深度对比
     let result = true
     if (obj1 === obj2) {
         return true
     }
-    if ((typeof obj1) !== (typeof obj2)) {
+
+    if (!typeEqual(obj1, obj2)) {
         return false
     }
-    if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) {//数组长度不同
+    if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) { // 数组长度不同
         return result = false
     }
     for (let prop in obj1) {
         let val1 = obj1[prop]
         let val2 = obj2[prop]
-        if ((typeof val1) !== (typeof val2)) {//数据类型不同
+        if ((typeof val1) !== (typeof val2)) { // 数据类型不同
             return result = false
         } else if (typeof val1 === 'object') {
             result = deepEqual(val1, val2)
@@ -101,13 +109,13 @@ export function findNode({
     data = [],
     field = 'id',
     key = '',
-    childField ='children'
+    childField = 'children'
 } = {} as {
     data: any,
     field: string,
     key: string,
     childField: string
-}): any{//树形结构根据id查找节点数据
+}): any {//树形结构根据id查找节点数据
     let target: any
     let childrenList: any = {}
     if (data instanceof Array) {
@@ -121,8 +129,8 @@ export function findNode({
             if (children[field] === key) {
                 return target = children
             } else if (children[childField] && children[childField].length) {
-                target = findNode({data:children, key,childField,field})
-                if (target&&target[field] === key){
+                target = findNode({ data: children, key, childField, field })
+                if (target && target[field] === key) {
                     return target
                 }
             }
