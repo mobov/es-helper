@@ -1,8 +1,11 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { } from '../src/index'
+import { Client } from '../src/index'
 
+Client.init('zh-CN')
+
+console.log(Client)
 
 // import { initClient, isStyleUnit, RegexMap,
 // 	     scrollToXView, scrollToYView, scrollToX, scrollToY, scrollTo, getClient, copy2Board, appendUrlParams } from '../src/index'

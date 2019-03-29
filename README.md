@@ -5,25 +5,23 @@
 ```shell
 yarn add @megmore/es-helper 
 ```
-
-### `initClient(lang, isMount): {type, lang, OS}`
-> 初始化设备信息
-
-| 参数名称 | 类型 | 默认值 | 说明 |  
-| :--- | :--- | :--- | :----: | 
-| lang | string | navigator.language | 语言 | 
-| isMount  | boolean | true | 是否挂载节点信息 |
-| version  | string | '' | 系统版本 |
-| OS  | string | '' | 系统 |
-
-### `getClient(): { type, lang, OS }`
-> 获取初始化的设备信息
+### `Client`
+> 初始化的设备信息对象
 
 | 返回参数 | 返回值 | 说明 |  
 | :--- | :--- | :--- |
 | type  | 'pc' / 'mobile' | 设备类型 
 | lang  | string | 语言
 | OS    | 'Windows' / 'Android' / 'IOS' | 系统 |
+| version  | string | '' | 系统版本 |
+
+### `Client.init(lang, isMount)`
+> 重新初始化设备信息对象
+
+| 返回参数 | 返回值 | 说明 |  
+| :--- | :--- | :--- |
+| lang | string | navigator.language | 语言 | 
+| isMount  | boolean | true | 是否挂载节点信息 |
 
 ### `clip2Board(text): promise`
 > 复制内容到剪切板, 返回promise

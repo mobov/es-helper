@@ -2,7 +2,7 @@
  * 设备信息，同时提供初始化方法在页面初始化挂载
  * Created by nocoolyoyo on 2018/3/11.
  */
-import { isMobile, isOSAndroid, isOSIos, isOSWindows, isEmptyObject } from './validate'
+import { isMobile, isOSAndroid, isOSIos, isOSWindows } from './validate'
 
 class Client {
     lang: string = navigator.language
