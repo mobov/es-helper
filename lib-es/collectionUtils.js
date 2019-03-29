@@ -70,6 +70,9 @@ export const typeEqual = (v1, v2) => {
     }
     return [v1, v2].every(v => v === null);
 };
+export const isObject = (v) => {
+    return v !== null && typeof v === 'object';
+};
 export const deepEqual = (obj1, obj2) => {
     let result = true;
     if (obj1 === obj2) {
@@ -77,6 +80,9 @@ export const deepEqual = (obj1, obj2) => {
     }
     if (!typeEqual(obj1, obj2)) {
         return false;
+    }
+    if (!isObject(obj1)) {
+        return obj1 === obj2;
     }
     if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) { // 数组长度不同
         return result = false;

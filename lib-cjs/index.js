@@ -125,6 +125,9 @@ var typeEqual = function typeEqual(v1, v2) {
     return v === null;
   });
 };
+var isObject = function isObject(v) {
+  return v !== null && _typeof_1(v) === 'object';
+};
 var deepEqual = function deepEqual(obj1, obj2) {
   var result = true;
 
@@ -134,6 +137,10 @@ var deepEqual = function deepEqual(obj1, obj2) {
 
   if (!typeEqual(obj1, obj2)) {
     return false;
+  }
+
+  if (!isObject(obj1)) {
+    return obj1 === obj2;
   }
 
   if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) {

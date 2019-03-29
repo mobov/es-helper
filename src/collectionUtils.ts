@@ -68,14 +68,21 @@ export const typeEqual = (v1: any, v2: any): boolean => {
     }
     return [v1, v2].every(v => v === null)
 }
+
+export const isObject = (v:any) => {
+    return v !== null && typeof v === 'object'
+}
+
 export const deepEqual = (obj1: any, obj2: any): boolean => { // JSON对象深度对比
     let result = true
     if (obj1 === obj2) {
         return true
     }
-
     if (!typeEqual(obj1, obj2)) {
         return false
+    }
+    if (!isObject(obj1)) {
+        return obj1 === obj2
     }
     if (Array.isArray(obj1) && Array.isArray(obj2) && obj1.length !== obj2.length) { // 数组长度不同
         return result = false
