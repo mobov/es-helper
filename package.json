@@ -1,9 +1,8 @@
 {
   "name": "@megmore/es-helper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "前端常用工具方法集合",
   "main": "lib-cjs/index.js",
-  "module": "lib-es/index.js",
   "types": "types/index.d.ts",
   "scripts": {
     "test": "mocha",
