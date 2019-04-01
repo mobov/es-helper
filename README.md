@@ -3,7 +3,7 @@
 
 ### 安装
 ```shell
-yarn add @megmore/es-helper 
+yarn add @mobov/es-helper 
 ```
 ### `Client`
 > 初始化的设备信息对象

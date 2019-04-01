@@ -1,9 +1,12 @@
 {
-  "name": "@megmore/es-helper",
+  "name": "@mobov/es-helper",
   "version": "1.0.4",
   "description": "前端常用工具方法集合",
   "main": "lib-cjs/index.js",
   "types": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "mocha",
     "serve": "webpack-dev-server --open --config build/serve.js",
@@ -15,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/megmore/es-helper.git"
+    "url": "git+https://github.com/mobov/es-helper.git"
   },
   "keywords": [
     "utils",
@@ -27,9 +30,9 @@
   "author": "nocoolyoyo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/megmore/es-helper/issues"
+    "url": "https://github.com/mobov/es-helper/issues"
   },
-  "homepage": "https://github.com/megmore/es-helper#readme",
+  "homepage": "https://github.com/mobov/es-helper#readme",
   "peerDependencies": {
     "eslint": ">= 3"
   },
