@@ -27,8 +27,8 @@ const config = {
   ],
 }
 
-if (process.env.TYPE !== 'umd') {
-  config.external = Object.keys(packages.dependencies)
-}
+  if (process.env.TYPE !== 'umd') {
+    config.external = Object.keys(packages.dependencies)
+  }
 
 export default config

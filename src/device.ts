@@ -10,28 +10,16 @@ class Client {
     version: string = ''
     OS: 'IOS' | 'Android' | 'Windows' = 'Windows'
 
-    constructor () {
-        this.init()
-    }
+    constructor () { }
 
     init (lang: string = '', isMount: boolean = true) {
-        if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
-            // @ts-ignore
-            this.version = navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
-        } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
-            // @ts-ignore
-            this.version = navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
-        } else {
-            this.version = ''
-        }
 
         if (isMobile()) {
             this.type = 'mobile'
-
         } else {
             this.type = 'pc'
         }
-
+        console.log(this.type)
         if (isOSIos()) {
             this.OS = 'IOS'
         } else if (isOSAndroid()) {
@@ -39,6 +27,17 @@ class Client {
         } else if (isOSWindows()) {
             this.OS = 'Windows'
         }
+        if (isOSAndroid()) {
+            // @ts-ignore
+            this.version = navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1]
+        } else if (isOSIos()) {
+            // @ts-ignore
+            this.version = navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.')
+        } else {
+            this.version = ''
+        }
+
+        console.log(this.OS)
 
         if (!!lang) {
             const langMap = lang.split('-')

@@ -455,7 +455,6 @@ function () {
     this.type = 'pc';
     this.version = '';
     this.OS = 'Windows';
-    this.init();
   }
 
   createClass(Client, [{
@@ -464,21 +463,13 @@ function () {
       var lang = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var isMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
-      if (/Android (\d+(\.\d+)+)/.test(navigator.userAgent)) {
-        // @ts-ignore
-        this.version = navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1];
-      } else if (/iPhone OS (\d+(_\d+)+)/.test(navigator.userAgent)) {
-        // @ts-ignore
-        this.version = navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.');
-      } else {
-        this.version = '';
-      }
-
       if (isMobile()) {
         this.type = 'mobile';
       } else {
         this.type = 'pc';
       }
+
+      console.log(this.type);
 
       if (isOSIos()) {
         this.OS = 'IOS';
@@ -487,6 +478,18 @@ function () {
       } else if (isOSWindows()) {
         this.OS = 'Windows';
       }
+
+      if (isOSAndroid()) {
+        // @ts-ignore
+        this.version = navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1];
+      } else if (isOSIos()) {
+        // @ts-ignore
+        this.version = navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.');
+      } else {
+        this.version = '';
+      }
+
+      console.log(this.OS);
 
       if (!!lang) {
         var langMap = lang.split('-');
@@ -869,6 +872,66 @@ function appendUrlParams() {
   return cleanUrl;
 }
 
+var langMap = {
+  'zh-CN': '简体中文',
+  'zh-TW': '繁体中文',
+  'ar': 'العربية',
+  'de': 'Deutsch',
+  'en': 'English',
+  'es': 'Español',
+  'fr': 'Français',
+  'id': 'Indonesia',
+  'it': 'Italiano',
+  'ja': '日本語',
+  'ko': '한국어韩语',
+  'nl': 'Nederlands',
+  'po': 'Polski',
+  'pt': 'Português',
+  'ro': 'română',
+  'ru': 'Русский',
+  'sv': 'Svenska',
+  'th': 'ไทย泰语',
+  'tr': 'Türkçe',
+  'vi': 'Tiếng Việt'
+};
+/**
+ * 业务多语言适配器
+ *
+ * @param {string} lang 需要被适配的语言字符串 ,为空则返回英语
+ * @returns 适配结果，没有适配结果则返回输入的字符串
+ *
+ * @author nocoolyoyo
+ * @since 2018-05-23
+ */
+
+function langAdapt(lang) {
+  if (typeof lang !== 'string') {
+    throw new Error('lang is not a string');
+  }
+
+  lang = lang.toLowerCase().trim(); //中文
+
+  if (lang.indexOf('zh-') !== -1) {
+    //某些安卓设备语言返回的是zh-rCN，zh-rTW
+    if (lang.indexOf('cn') !== -1) {
+      lang = 'zh-CN';
+    } else {
+      lang = 'zh-TW';
+    }
+  } else if (lang.indexOf('ja') !== -1 || lang.indexOf('jp') !== -1) {
+    //日语
+    lang = 'ja';
+  } else {
+    //其他语言
+    //中线处理
+    if (lang.indexOf('-') !== -1) {
+      lang = lang.split('-')[0];
+    }
+  }
+
+  return lang;
+}
+
 /**
  * Created by nocoolyoyo on 2018/6/11.
  */
@@ -896,6 +959,8 @@ exports.strongEaseOut = strongEaseOut;
 exports.getUrlParam = getUrlParam;
 exports.getUrlParams = getUrlParams;
 exports.appendUrlParams = appendUrlParams;
+exports.langMap = langMap;
+exports.langAdapt = langAdapt;
 exports.REGEX_UA_OS_WINDOWS = REGEX_UA_OS_WINDOWS;
 exports.REGEX_UA_OS_ANDROID = REGEX_UA_OS_ANDROID;
 exports.REGEX_UA_OS_IOS = REGEX_UA_OS_IOS;

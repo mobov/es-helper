@@ -19,6 +19,8 @@ export { easeIn, linear, sineaseIn, sineaseOut, strongEaseIn, strongEaseOut } fr
 
 export { getUrlParam, getUrlParams, appendUrlParams } from './urlParams'
 
+export { langMap, langAdapt } from './langUtils'
+
 export { REGEX_UA_OS_WINDOWS, REGEX_UA_OS_ANDROID, REGEX_UA_OS_IOS, REGEX_UA_CLIENT_MOBILE,
          REGEX_STYLE_UNIT, REGEX_LOWER_CASE, REGEX_BASE64, REGEX_EMAIL, REGEX_HEX_COLOR, REGEX_UPPER_CASE, REGEX_URL,
          isOSAndroid, isOSIos, isBase64, isEmail, isEmptyObject, isHexColor, isLowerCase, isMobile, isOSWindows,

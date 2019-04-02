@@ -1,11 +1,14 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { Client } from '../src/index'
+import { Client, langAdapt } from '../src/index'
 
 Client.init('zh-CN')
 
-console.log(Client)
+
+// console.log(Client)
+//
+// console.log(langAdapt('zh-tw'))
 
 // import { initClient, isStyleUnit, RegexMap,
 // 	     scrollToXView, scrollToYView, scrollToX, scrollToY, scrollTo, getClient, copy2Board, appendUrlParams } from '../src/index'
