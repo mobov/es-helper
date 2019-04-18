@@ -1,9 +1,14 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { Client, langAdapt } from '../src/index'
+import { Client, langAdapt, isMobile, isOSAndroid } from '../src/index'
 
 Client.init('zh-CN')
+
+
+setInterval(() => {
+    console.log(isMobile())
+}, 500)
 
 
 // console.log(Client)

@@ -305,6 +305,7 @@ function isURL(val) {
     return false;
   }
 
+  REGEX_URL.lastIndex = 0;
   return REGEX_URL.test(val);
 }
 /**
@@ -318,6 +319,7 @@ function isBase64(val) {
     return false;
   }
 
+  REGEX_BASE64.lastIndex = 0;
   return REGEX_BASE64.test(val);
 }
 /**
@@ -330,6 +332,7 @@ function isLowerCase(val) {
     return false;
   }
 
+  REGEX_LOWER_CASE.lastIndex = 0;
   return REGEX_LOWER_CASE.test(val);
 }
 /**
@@ -397,6 +400,7 @@ function isHexColor(val) {
     return false;
   }
 
+  REGEX_HEX_COLOR.lastIndex = 0;
   return REGEX_HEX_COLOR.test(val);
 }
 /**
@@ -410,6 +414,7 @@ function isStyleUnit(val) {
     return false;
   }
 
+  REGEX_STYLE_UNIT.lastIndex = 0;
   return REGEX_STYLE_UNIT.test(val);
 }
 /**
@@ -418,6 +423,7 @@ function isStyleUnit(val) {
  */
 
 function isMobile() {
+  REGEX_UA_CLIENT_MOBILE.lastIndex = 0;
   return REGEX_UA_CLIENT_MOBILE.test(navigator.userAgent);
 }
 /**
@@ -426,6 +432,7 @@ function isMobile() {
  */
 
 function isOSIos() {
+  REGEX_UA_OS_IOS.lastIndex = 0;
   return REGEX_UA_OS_IOS.test(navigator.userAgent);
 }
 /**
@@ -434,6 +441,7 @@ function isOSIos() {
  */
 
 function isOSAndroid() {
+  REGEX_UA_OS_ANDROID.lastIndex = 0;
   return REGEX_UA_OS_ANDROID.test(navigator.userAgent);
 }
 /**
@@ -442,6 +450,7 @@ function isOSAndroid() {
  */
 
 function isOSWindows() {
+  REGEX_UA_OS_WINDOWS.lastIndex = 0;
   return REGEX_UA_OS_WINDOWS.test(navigator.userAgent);
 }
 

@@ -25,6 +25,7 @@ export function isURL(val) {
     if (typeof val !== 'string') {
         return false;
     }
+    REGEX_URL.lastIndex = 0;
     return REGEX_URL.test(val);
 }
 /**
@@ -36,6 +37,7 @@ export function isBase64(val) {
     if (typeof val !== 'string') {
         return false;
     }
+    REGEX_BASE64.lastIndex = 0;
     return REGEX_BASE64.test(val);
 }
 /**
@@ -46,6 +48,7 @@ export function isLowerCase(val) {
     if (typeof val !== 'string') {
         return false;
     }
+    REGEX_LOWER_CASE.lastIndex = 0;
     return REGEX_LOWER_CASE.test(val);
 }
 /**
@@ -103,6 +106,7 @@ export function isHexColor(val) {
     if (typeof val !== 'string') {
         return false;
     }
+    REGEX_HEX_COLOR.lastIndex = 0;
     return REGEX_HEX_COLOR.test(val);
 }
 /**
@@ -114,6 +118,7 @@ export function isStyleUnit(val) {
     if (typeof val !== 'string') {
         return false;
     }
+    REGEX_STYLE_UNIT.lastIndex = 0;
     return REGEX_STYLE_UNIT.test(val);
 }
 /**
@@ -121,6 +126,7 @@ export function isStyleUnit(val) {
  * @return {boolean}
  */
 export function isMobile() {
+    REGEX_UA_CLIENT_MOBILE.lastIndex = 0;
     return REGEX_UA_CLIENT_MOBILE.test(navigator.userAgent);
 }
 /**
@@ -128,6 +134,7 @@ export function isMobile() {
  * @return {boolean}
  */
 export function isOSIos() {
+    REGEX_UA_OS_IOS.lastIndex = 0;
     return REGEX_UA_OS_IOS.test(navigator.userAgent);
 }
 /**
@@ -135,6 +142,7 @@ export function isOSIos() {
  * @return {boolean}
  */
 export function isOSAndroid() {
+    REGEX_UA_OS_ANDROID.lastIndex = 0;
     return REGEX_UA_OS_ANDROID.test(navigator.userAgent);
 }
 /**
@@ -142,6 +150,7 @@ export function isOSAndroid() {
  * @return {boolean}
  */
 export function isOSWindows() {
+    REGEX_UA_OS_WINDOWS.lastIndex = 0;
     return REGEX_UA_OS_WINDOWS.test(navigator.userAgent);
 }
 //# sourceMappingURL=validate.js.map

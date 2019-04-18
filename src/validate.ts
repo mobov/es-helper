@@ -6,7 +6,7 @@ export const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|
 export const REGEX_URL = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
 export const REGEX_UPPER_CASE = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
 export const REGEX_LOWER_CASE = /^[a-z]+$/
-export const REGEX_HEX_COLOR =  /^#[0-9a-fA-F]{6}$/
+export const REGEX_HEX_COLOR = /^#[0-9a-fA-F]{6}$/
 export const REGEX_STYLE_UNIT = /px|vw|rem|em|%|auto|unset$/
 export const REGEX_UA_CLIENT_MOBILE = /mobile/gi
 export const REGEX_UA_OS_IOS = /ipad|iphone/gi
@@ -23,9 +23,12 @@ export const REGEX_BASE64 = /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)
  * @date       2018/2/19
  * @author   nocoolyoyo
  */
-export function isURL(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_URL.test(val)
+export function isURL (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    REGEX_URL.lastIndex = 0
+    return REGEX_URL.test(val)
 }
 
 /**
@@ -33,18 +36,24 @@ export function isURL(val: string): boolean {
  * @param val
  * @return {boolean}
  */
-export function isBase64(val: string): boolean {
-    if (typeof val !== 'string') { return false }
-	return REGEX_BASE64.test(val)
+export function isBase64 (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    REGEX_BASE64.lastIndex = 0
+    return REGEX_BASE64.test(val)
 }
 
 /**
  * 小写校验
  * @param val
  */
-export function isLowerCase(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_LOWER_CASE.test(val)
+export function isLowerCase (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    REGEX_LOWER_CASE.lastIndex = 0
+    return REGEX_LOWER_CASE.test(val)
 }
 
 /**
@@ -53,9 +62,11 @@ export function isLowerCase(val: string): boolean {
  * @param    {string}  val   被校验参数
  * @returns   {boolean}
  */
-export function isUpperCase(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_UPPER_CASE.test(val)
+export function isUpperCase (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    return REGEX_UPPER_CASE.test(val)
 }
 
 /**
@@ -64,9 +75,11 @@ export function isUpperCase(val: string): boolean {
  * @param    {string}  val   被校验参数
  * @returns   {boolean}
  */
-export function isEmail(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_EMAIL.test(val)
+export function isEmail (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    return REGEX_EMAIL.test(val)
 }
 
 /**
@@ -74,9 +87,11 @@ export function isEmail(val: string): boolean {
  * @param val
  * @returns {boolean}
  */
-export function isTrimEmpty(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return val.trim() === ''
+export function isTrimEmpty (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    return val.trim() === ''
 }
 
 /**
@@ -84,9 +99,11 @@ export function isTrimEmpty(val: string): boolean {
  * @param val
  * @return {boolean}
  */
-export function isEmptyObject(val: any): boolean {
-  if (typeof val !== 'object') { return false }
-  return Object.keys(val).length === 0
+export function isEmptyObject (val: any): boolean {
+    if (typeof val !== 'object') {
+        return false
+    }
+    return Object.keys(val).length === 0
 }
 
 /**
@@ -94,9 +111,12 @@ export function isEmptyObject(val: any): boolean {
  * @param val
  * @return {boolean}
  */
-export function isHexColor(val: string): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_HEX_COLOR.test(val)
+export function isHexColor (val: string): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    REGEX_HEX_COLOR.lastIndex = 0
+    return REGEX_HEX_COLOR.test(val)
 }
 
 /**
@@ -104,39 +124,46 @@ export function isHexColor(val: string): boolean {
  * @param val
  * @return {boolean}
  */
-export function isStyleUnit(val: string | number): boolean {
-  if (typeof val !== 'string') { return false }
-  return REGEX_STYLE_UNIT.test(val)
+export function isStyleUnit (val: string | number): boolean {
+    if (typeof val !== 'string') {
+        return false
+    }
+    REGEX_STYLE_UNIT.lastIndex = 0
+    return REGEX_STYLE_UNIT.test(val)
 }
 
 /**
  * 是否是手机
  * @return {boolean}
  */
-export function isMobile(): boolean {
-  return REGEX_UA_CLIENT_MOBILE.test(navigator.userAgent)
+export function isMobile (): boolean {
+    REGEX_UA_CLIENT_MOBILE.lastIndex = 0
+    return REGEX_UA_CLIENT_MOBILE.test(navigator.userAgent)
 }
 
 /**
  * 是否是IOS系统
  * @return {boolean}
  */
-export function isOSIos() {
-  return REGEX_UA_OS_IOS.test(navigator.userAgent)
+export function isOSIos () {
+    REGEX_UA_OS_IOS.lastIndex = 0
+    return REGEX_UA_OS_IOS.test(navigator.userAgent)
 }
 
 /**
  * 是否是ANDROID系统
  * @return {boolean}
  */
-export function isOSAndroid() {
-  return REGEX_UA_OS_ANDROID.test(navigator.userAgent)
+export function isOSAndroid () {
+    REGEX_UA_OS_ANDROID.lastIndex = 0
+    return REGEX_UA_OS_ANDROID.test(navigator.userAgent)
 }
 
 /**
  * 是否是WINDOWS系统
  * @return {boolean}
  */
-export function isOSWindows() {
-  return REGEX_UA_OS_WINDOWS.test(navigator.userAgent)
+export function isOSWindows () {
+    REGEX_UA_OS_WINDOWS.lastIndex = 0
+    return REGEX_UA_OS_WINDOWS.test(navigator.userAgent)
 }
