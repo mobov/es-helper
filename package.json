@@ -1,6 +1,6 @@
 {
   "name": "@mobov/es-helper",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "前端常用工具方法集合",
   "main": "lib-cjs/index.js",
   "types": "types/index.d.ts",

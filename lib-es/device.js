@@ -29,11 +29,17 @@ class Client {
         }
         if (isOSAndroid()) {
             // @ts-ignore
-            this.version = navigator.userAgent.match(/Android (\d+(\.\d+)+)/)[1];
+            const match = navigator.userAgent.match(/Android (\d+(\.\d+)+)/);
+            if (match) {
+                this.version = match[1];
+            }
         }
         else if (isOSIos()) {
             // @ts-ignore
-            this.version = navigator.userAgent.match(/iPhone OS (\d+(_\d+)+)/)[1].replace(/_/g, '.');
+            const match = navigator.userAgent.match(/OS (\d+(_\d+)+)/);
+            if (match) {
+                this.version = match[1].replace(/_/g, '.');
+            }
         }
         else {
             this.version = '';
