@@ -5,10 +5,16 @@ import { Client, langAdapt, isMobile, isOSAndroid } from '../src/index'
 
 Client.init('zh-CN')
 
+const $div = document.createElement('div')
+$div.style.backgroundColor = 'green'
+$div.style.height = '500px'
+$div.style.width = '500px'
 
-setInterval(() => {
-    console.log(isMobile())
-}, 500)
+document.body.appendChild($div)
+console.log($div.getBoundingClientRect())
+// setInterval(() => {
+//     console.log(isMobile())
+// }, 500)
 
 
 // console.log(Client)

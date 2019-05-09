@@ -772,6 +772,17 @@ function camelCase(name) {
   }).replace(MOZ_HACK_REGEXP, 'Moz$1');
 }
 
+// 物理引擎算法
+
+/**
+ * dom元素是否相交（碰撞）
+ * @param r1
+ * @param r2
+ */
+function haveDomRectIntersection(r1, r2) {
+  return !(r2.x > r1.x + r1.width || r2.x + r2.width < r1.x || r2.y > r1.y + r1.height || r2.y + r2.height < r1.y);
+}
+
 //     [field: TElements]: string | number
 // }
 
@@ -965,6 +976,7 @@ exports.scrollToX = scrollToX;
 exports.scrollToY = scrollToY;
 exports.imageLoaded = imageLoaded;
 exports.camelCase = camelCase;
+exports.haveDomRectIntersection = haveDomRectIntersection;
 exports.strStyle = strStyle;
 exports.getStyle = getStyle;
 exports.easeIn = easeIn;

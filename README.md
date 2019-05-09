@@ -5,6 +5,15 @@
 ```shell
 yarn add @mobov/es-helper 
 ```
+
+### `haveDomRectIntersection(r1: DOMRect, r2: DOMRect): boolean`
+> dom碰撞检测
+
+| 参数名称 | 类型 | 默认值 | 说明 |  
+| :--- | :--- | :--- | :--- | 
+| r1 | DOMRect |  | dom1 client rect |
+| r2 | DOMRect |  | dom2 client rect |
+
 ### `Client`
 > 初始化的设备信息对象
 

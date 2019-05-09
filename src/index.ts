@@ -13,6 +13,8 @@ export { imageLoaded } from './image'
 
 export { camelCase } from './stringUtils'
 
+export { haveDomRectIntersection } from './physX'
+
 export { strStyle, getStyle } from './styleUtils'
 
 export { easeIn, linear, sineaseIn, sineaseOut, strongEaseIn, strongEaseOut } from './tween'
