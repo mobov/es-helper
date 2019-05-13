@@ -1,6 +1,10 @@
 # 更新日志
 
-*2018-04-02*
+*2018-05-13*
+
+- 添加absArray, absObject数据处理
+
+*2018-05-02*
 
 - 添加haveDomRectIntersection 碰撞检测
 

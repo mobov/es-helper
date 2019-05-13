@@ -145,3 +145,15 @@ export function findNode({
     }
     return target
 }
+
+export function absArray (val: any): void {
+    if (!(val && val instanceof Array)) {
+        val = []
+    }
+}
+
+export function absObject (val: any) {
+    if (!(val && val instanceof Object)) {
+        val = {}
+    }
+}

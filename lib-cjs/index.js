@@ -219,6 +219,16 @@ function findNode() {
 
   return target;
 }
+function absArray(val) {
+  if (!(val && val instanceof Array)) {
+    val = [];
+  }
+}
+function absObject(val) {
+  if (!(val && val instanceof Object)) {
+    val = {};
+  }
+}
 
 /**
  * 封装clipboard的复制功能
@@ -970,6 +980,8 @@ exports.arrayUniqueByField = arrayUniqueByField;
 exports.deepCopy = deepCopy;
 exports.deepEqual = deepEqual;
 exports.findNode = findNode;
+exports.absArray = absArray;
+exports.absObject = absObject;
 exports.clip2Board = clip2Board;
 exports.Client = device;
 exports.scrollToX = scrollToX;

@@ -137,4 +137,14 @@ export function findNode({ data = [], field = 'id', key = '', childField = 'chil
     }
     return target;
 }
+export function absArray(val) {
+    if (!(val && val instanceof Array)) {
+        val = [];
+    }
+}
+export function absObject(val) {
+    if (!(val && val instanceof Object)) {
+        val = {};
+    }
+}
 //# sourceMappingURL=collectionUtils.js.map

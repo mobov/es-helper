@@ -18,3 +18,5 @@ export declare function findNode({ data, field, key, childField }?: {
     key: string;
     childField: string;
 }): any;
+export declare function absArray(val: any): void;
+export declare function absObject(val: any): void;
