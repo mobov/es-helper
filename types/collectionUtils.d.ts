@@ -18,5 +18,5 @@ export declare function findNode({ data, field, key, childField }?: {
     key: string;
     childField: string;
 }): any;
-export declare function absArray(val: any): void;
-export declare function absObject(val: any): void;
+export declare function getAbsArray(val: any): any[];
+export declare function getAbsObject(val: any): any;

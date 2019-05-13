@@ -1,7 +1,7 @@
 /**
  * Created by nocoolyoyo on 2018/6/11.
  */
-export { arrayClear, arrayUnique, arrayUniqueByField, deepCopy, deepEqual, findNode, absArray, absObject } from './collectionUtils';
+export { arrayClear, arrayUnique, arrayUniqueByField, deepCopy, deepEqual, findNode, getAbsArray, getAbsObject } from './collectionUtils';
 export { default as clip2Board } from './copy2Board';
 export { default as Client } from './device';
 export { scrollToX, scrollToY } from './easeScroll';

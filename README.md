@@ -151,7 +151,7 @@ yarn add @mobov/es-helper
 | :--- | :--- | :--- | :--- | 
 | param1,param2 | any | - |需要对比的数据|
 
-### `absArray:(param:any)=>any[]`
+### `getAbsArray:(param:any)=>any[]`
 
 > 数组绝对格式化，非数组数据丢弃设置空数组
 
@@ -159,7 +159,7 @@ yarn add @mobov/es-helper
 | :--- | :--- | :--- | :--- | 
 | param | any | - |需要做格式处理数据|
 
-### `absObject:(param:any)=>any`
+### `getAbsObject:(param:any)=>any`
 
 > 对象绝对格式化，非对象数据丢弃设置空对象
 

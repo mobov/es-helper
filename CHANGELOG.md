@@ -2,7 +2,7 @@
 
 *2018-05-13*
 
-- 添加absArray, absObject数据处理
+- 添加getAbsArray, getAbsObject数据处理
 
 *2018-05-02*
 

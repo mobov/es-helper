@@ -219,15 +219,19 @@ function findNode() {
 
   return target;
 }
-function absArray(val) {
+function getAbsArray(val) {
   if (!(val && val instanceof Array)) {
-    val = [];
+    return [];
   }
+
+  return val;
 }
-function absObject(val) {
+function getAbsObject(val) {
   if (!(val && val instanceof Object)) {
-    val = {};
+    return {};
   }
+
+  return val;
 }
 
 /**
@@ -980,8 +984,8 @@ exports.arrayUniqueByField = arrayUniqueByField;
 exports.deepCopy = deepCopy;
 exports.deepEqual = deepEqual;
 exports.findNode = findNode;
-exports.absArray = absArray;
-exports.absObject = absObject;
+exports.getAbsArray = getAbsArray;
+exports.getAbsObject = getAbsObject;
 exports.clip2Board = clip2Board;
 exports.Client = device;
 exports.scrollToX = scrollToX;
