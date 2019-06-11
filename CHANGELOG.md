@@ -2,6 +2,10 @@
 
 *2018-05-13*
 
+- 添加arraySwap数组元素交换
+
+*2018-05-13*
+
 - 添加getAbsArray, getAbsObject数据处理
 
 *2018-05-02*

@@ -117,6 +117,15 @@ yarn add @mobov/es-helper
 | url | string |  location.href | url  |
 | sort | boolean |  false | 是否对参数做重组排序   |
 
+### `arraySwap:(arr:array, index0, index1)=>Array`
+> 数组元素替换
+
+| 参数名称 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- | 
+| array | Array | - |输入数组|
+| index0 | Number | - |交换元素下标|
+| index1 | Number | - |交换元素下标|
+
 ### `arrayUnique:(arr:array)=>Array`
 > 数组去重
 

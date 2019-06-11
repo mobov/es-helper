@@ -47,6 +47,10 @@ var arrayClear = function arrayClear(arr) {
     arr.splice(0, arr.length);
   }
 };
+var arraySwap = function arraySwap(arr, index1, index2) {
+  arr[index1] = arr.splice(index2, 1, arr[index1])[0];
+  return arr;
+};
 var arrayUnique = function arrayUnique(arr) {
   var result = [];
   var str = [];
@@ -979,6 +983,7 @@ function langAdapt(lang) {
  */
 
 exports.arrayClear = arrayClear;
+exports.arraySwap = arraySwap;
 exports.arrayUnique = arrayUnique;
 exports.arrayUniqueByField = arrayUniqueByField;
 exports.deepCopy = deepCopy;

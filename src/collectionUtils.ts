@@ -4,6 +4,11 @@ export const arrayClear = (arr: any[]) => {
     }
 }
 
+export const arraySwap = <T = any>(arr: T[], index1: number, index2: number): T[] => {
+    arr[index1] = arr.splice(index2, 1, arr[index1])[0]
+    return arr
+}
+
 export const arrayUnique = <T = number | string>(arr: T[]): T[] => {//Array<String|Number>去重
     const result: T[] = []
     const str: T[] = []
