@@ -19,12 +19,12 @@ const META_CODE = {
 	}
 }
 
-interface ScrollFuncOpts {
+export interface ScrollFuncOpts {
     target: HTMLElement | number |  'start' | 'end'
-    justify: number
-    duration: number
-    transition: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut'
-    position: 'center' |  'start' | 'end'
+    justify?: number
+    duration?: number
+    transition?: 'linear' | 'easeIn' | 'strongEaseIn' | 'strongEaseOut' | 'sineaseIn' | 'sineaseOut'
+    position?: 'center' |  'start' | 'end'
 }
 /**
  * 滚动基础方法
