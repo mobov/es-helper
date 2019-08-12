@@ -47,6 +47,13 @@ yarn add @mobov/es-helper
 | :--- | :--- | :--- | :--- | 
 | name | string |  | 文本内容 |
 
+### `lineCase(name): string`
+> 将字符串转为中线
+
+| 参数名称 | 类型 | 默认值 | 说明 |  
+| :--- | :--- | :--- | :--- | 
+| name | string |  | 文本内容 |
+
 ### `imageLoaded(url): promise[then({ height, width })])`
 > 预加载图片, 返回promise, 
 

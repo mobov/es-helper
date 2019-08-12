@@ -6,7 +6,7 @@ export { default as clip2Board } from './copy2Board';
 export { default as Client } from './device';
 export { scrollToX, scrollToY } from './easeScroll';
 export { imageLoaded } from './image';
-export { camelCase } from './stringUtils';
+export { camelCase, lineCase } from './stringUtils';
 export { haveDomRectIntersection } from './physX';
 export { strStyle, getStyle } from './styleUtils';
 export { easeIn, linear, sineaseIn, sineaseOut, strongEaseIn, strongEaseOut } from './tween';

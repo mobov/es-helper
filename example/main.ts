@@ -1,7 +1,7 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { Client, langAdapt, isMobile, isOSAndroid } from '../src/index'
+import { Client, langAdapt, isMobile, isOSAndroid, lineCase } from '../src/index'
 
 Client.init('zh-CN')
 
@@ -15,7 +15,7 @@ console.log($div.getBoundingClientRect())
 // setInterval(() => {
 //     console.log(isMobile())
 // }, 500)
-
+console.log(lineCase('ElDom'))
 
 // console.log(Client)
 //

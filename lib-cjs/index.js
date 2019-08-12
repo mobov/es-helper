@@ -782,12 +782,18 @@ function imageLoaded(url) {
  * @author: nocoolyoyo
  * @date: 2018-03-11
  */
-var SPECIAL_CHARS_REGEXP = /([:\-_]+(.))/g;
-var MOZ_HACK_REGEXP = /^moz([A-Z])/;
 function camelCase(name) {
+  var SPECIAL_CHARS_REGEXP = /([:\-_]+(.))/g;
+  var MOZ_HACK_REGEXP = /^moz([A-Z])/;
   return name.replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
     return offset ? letter.toUpperCase() : letter;
   }).replace(MOZ_HACK_REGEXP, 'Moz$1');
+}
+function lineCase(name) {
+  var UPPER_CHARS_REGEXP = /[A-Z]/g;
+  return name.replace(UPPER_CHARS_REGEXP, function (_, separator, letter, offset) {
+    return separator === 0 ? _.toLowerCase() : "-".concat(_.toLowerCase());
+  });
 }
 
 // 物理引擎算法
@@ -997,6 +1003,7 @@ exports.scrollToX = scrollToX;
 exports.scrollToY = scrollToY;
 exports.imageLoaded = imageLoaded;
 exports.camelCase = camelCase;
+exports.lineCase = lineCase;
 exports.haveDomRectIntersection = haveDomRectIntersection;
 exports.strStyle = strStyle;
 exports.getStyle = getStyle;

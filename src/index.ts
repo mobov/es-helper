@@ -11,7 +11,7 @@ export { scrollToX, scrollToY } from './easeScroll'
 
 export { imageLoaded } from './image'
 
-export { camelCase } from './stringUtils'
+export { camelCase, lineCase } from './stringUtils'
 
 export { haveDomRectIntersection } from './physX'
 
