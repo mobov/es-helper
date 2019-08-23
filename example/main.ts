@@ -17,6 +17,16 @@ console.log($div.getBoundingClientRect())
 // }, 500)
 console.log(lineCase('ElDom'))
 
+const str = `{
+    "signature" = "dfreree...."; //也是base64 
+    "purchase-info" = "ewoJIm9x....."; //也是base64，这个里面存放详细时间，流水号等
+    "environment" = "Sandbox";
+    "pod" = "100";
+    "signing-status" = "0";
+}`
+console.log(str.match(/"purchase-info" = "(.*)";/))
+
+
 // console.log(Client)
 //
 // console.log(langAdapt('zh-tw'))
