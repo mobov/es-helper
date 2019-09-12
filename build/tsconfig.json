@@ -12,7 +12,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "declaration": true,
-    "outDir": "../lib-es/",
+    "outDir": "../lib-ts/",
     "declarationDir":  "../types/",
     "types": [
       "node"

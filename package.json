@@ -1,6 +1,6 @@
 {
   "name": "@mobov/es-helper",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "description": "前端常用工具方法集合",
   "main": "lib-cjs/index.js",
   "module": "lib-es/index.js",
@@ -13,8 +13,9 @@
     "serve": "webpack-dev-server --open --config build/serve.js",
     "build:umd": "cross-env TYPE=umd rollup -c build/build.js",
     "build:cjs": "cross-env TYPE=cjs rollup -c build/build.js",
-    "build:es": "tsc --project build",
-    "build": "npm run build:es && npm run build:umd && npm run build:cjs",
+    "build:es": "cross-env TYPE=es rollup -c build/build.js",
+    "build:ts": "tsc --project build",
+    "build": "npm run build:ts && npm run build:es && npm run build:umd && npm run build:cjs",
     "pub": "nrm use npm && npm publish --access=public"
   },
   "repository": {

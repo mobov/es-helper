@@ -1,5 +1,5 @@
 export declare const arrayClear: (arr: any[]) => void;
-export declare const arraySwap: <T = any>(arr: T[], index1: number, index2: number) => T[];
+export declare const arraySwap: <T = any>(arr: T[], index1: number, index2: number) => void;
 export declare const arrayUnique: <T = string | number>(arr: T[]) => T[];
 export declare const arrayUniqueByField: <T = any>(arr: T[], field?: string) => T[];
 export declare function deepCopy<T = any>(source: T): T;

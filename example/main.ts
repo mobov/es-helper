@@ -7,7 +7,7 @@ Client.init('zh-CN')
 
 const $div = document.createElement('div')
 $div.style.backgroundColor = 'green'
-$div.style.height = '500px'
+$div.style.height = '55500px'
 $div.style.width = '500px'
 
 document.body.appendChild($div)
@@ -17,16 +17,18 @@ console.log($div.getBoundingClientRect())
 // }, 500)
 console.log(lineCase('ElDom'))
 
-const str = `{
-    "signature" = "dfreree...."; //也是base64 
-    "purchase-info" = "ewoJIm9x....."; //也是base64，这个里面存放详细时间，流水号等
-    "environment" = "Sandbox";
-    "pod" = "100";
-    "signing-status" = "0";
-}`
-console.log(str.match(/"purchase-info" = "(.*)";/))
-
-
+// const str = `{
+//     "signature" = "dfreree...."; //也是base64
+//     "purchase-info" = "ewoJIm9x....."; //也是base64，这个里面存放详细时间，流水号等
+//     "environment" = "Sandbox";
+//     "pod" = "100";
+//     "signing-status" = "0";
+// }`
+// console.log(str.match(/"purchase-info" = "(.*)";/))
+//
+// docu.addEventListener('scroll', () => {
+//     console.log(1)
+// })
 // console.log(Client)
 //
 // console.log(langAdapt('zh-tw'))

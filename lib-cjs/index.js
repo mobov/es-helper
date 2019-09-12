@@ -48,8 +48,7 @@ var arrayClear = function arrayClear(arr) {
   }
 };
 var arraySwap = function arraySwap(arr, index1, index2) {
-  arr[index1] = arr.splice(index2, 1, arr[index1])[0];
-  return arr;
+  arr.splice(index2, 0, arr.splice(index1, 1)[0]);
 };
 var arrayUnique = function arrayUnique(arr) {
   var result = [];
