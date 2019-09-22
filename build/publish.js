@@ -5,6 +5,6 @@ shell.cp('-rf', './package.json', './lib')
 shell.cp('-rf', './README.md', './lib')
 shell.cp('-rf', './CHANGELOG.md', './lib')
 shell.cp('-rf', './tsconfig.json', './lib')
-shell.exec(`
-	npm run publish
-`)
+shell.cd('./lib')
+shell.exec('nrm use npm')
+shell.exec('npm publish')
