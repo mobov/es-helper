@@ -1,7 +1,8 @@
 /**
  * Created by nocoolyoyo on 2018/10/18.
  */
-import { Client, langAdapt, isMobile, isOSAndroid, lineCase } from '../src/index'
+import Client from '../src/Client'
+import lineCase from '../src/lineCase'
 
 Client.init('zh-CN')
 

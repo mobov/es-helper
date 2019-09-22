@@ -1,5 +1,5 @@
 const assert = require('assert');
-const util = require('../lib-cjs/index');
+const util = require('../lib/lib-cjs/index');
 const a = {
   a: [1, 2, 3, 4, 5],
   b: {
