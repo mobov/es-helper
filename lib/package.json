@@ -1,11 +1,11 @@
 {
   "name": "@mobov/es-helper",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "前端常用工具方法集合",
-  "unpkg": "lib/index.umd.js",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.js",
-  "types": "types/index.d.ts",
+  "unpkg": "index.umd.js",
+  "main": "index.cjs.js",
+  "module": "index.js",
+  "types": "/",
   "publishConfig": {
     "access": "public"
   },
